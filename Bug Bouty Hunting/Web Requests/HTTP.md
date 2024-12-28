@@ -1,19 +1,18 @@
-#HyperText Transfer Protocol (HTTP)
+# HyperText Transfer Protocol (HTTP)
 ---
 
-###Imp points:
+### Imp points:
 - port 80 and 443
 - ctrl+shift+i to open devtools in browser(generally)
 - cURL is a GET method
 
 
-###Imp commands:
+### Imp commands:
 - cURL [curl <url>]
 	- important extensions: -v(for verbose); -vvv(for extended verbose); -s(for silent mode); -k(specific for https to skip certificate check)
 
-##HTTP Headers
-
-###types:
+## HTTP Headers
+### types:
 - General (..Headers): contextuat, used to describe message rather than the content
 	- date
 	- connection close/open
