@@ -1,5 +1,4 @@
 # HyperText Transfer Protocol (HTTP)
----
 
 ### Imp points:
 - port 80 and 443
