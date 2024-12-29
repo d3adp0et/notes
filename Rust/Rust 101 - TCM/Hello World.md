@@ -1,4 +1,4 @@
-#Hello World
+# Hello World
 
 
 ### Cargo
@@ -20,8 +20,8 @@
 - println vs print ; println has breaks after every line while print does not
 	- eg.: println!("hello world!")
 	       println!("hello world!")
-	       /*[hello world!
-		  hello world!]*/
+	       /\*[hello world!
+		  hello world!]\*/
 	- eg.: print!("hello world!")
 	       print!("hello world!")
 	       //[hello world!hello world!	
