@@ -1,7 +1,7 @@
 # Hello World
 
 
-### Cargo
+## Cargo
 - cargo is the rust package manager
 - syntax: cargo new projet_name
 - makes the file with two folders src(main.rs) and target(.toml files)
@@ -17,7 +17,7 @@
 
 - main fn
 - macros are small functions
-- println vs print ; println has breaks after every line while print does not
+- println(macro) vs print ; println has breaks after every line while print does not
 	- eg.: println!("hello world!")
 	       println!("hello world!")
 	       /\*[hello world!
@@ -31,4 +31,4 @@
 ## Errors
 
 - 'rustc --explain error_code'
-- 
+- read output when getting error
