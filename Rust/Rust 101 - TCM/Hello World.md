@@ -26,7 +26,7 @@
 	       print!("hello world!")
 	       //[hello world!hello world!	
 
-### **comments: you can see above how to use (both multi-line and single-line)**
+### **comments you can see above how to use (both multi-line and single-line)**
 
 ## Errors
 
