@@ -70,7 +70,7 @@ UDP
 
 ## Subnetting
 - 32 bit
-- refer subnet-guide image
+- BOOORING
 
 
 

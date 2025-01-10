@@ -11,6 +11,7 @@
 	- important extensions: -v(for verbose); -vvv(for extended verbose); -s(for silent mode); -k(specific for https to skip certificate check)
 
 ## HTTP Headers
+
 ### types:
 - General (..Headers): contextuat, used to describe message rather than the content
 	- date
