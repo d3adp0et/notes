@@ -1,0 +1,226 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-09-07T16:33:16-04:00
+
+====== 0.0 Quick ======
+Created Sunday 07 September 2025
+
+**+ Port numbers - Flash Card**
+**+ RAID levels**
++ ISO / NIST standards - Flash Card
+**+ Different Attacks**
+**+ Types of boots**
++ 
+
+Please send your resume and a cover letter outlining your relevant experience to
+jobs@ciphersoniclabs.io with the subject line "RTL Engineer." W
+
+
+--------------------
+Notes:
+ICMP - ping
+
+
+--------------------
+
+==== Security & IT Governance Frameworks ====
+
+=== NIST Cybersecurity Framework (CSF) – 5 core functions: Identify, Protect, Detect, Respond, Recover. ===
+
+NIST RMF (Risk Management Framework) – Structured risk mgmt for U.S. federal systems.
+
+NIST SP 800-53 – Catalog of security controls.
+
+NIST SP 800-37 – Applying the RMF.
+
+NIST SP 800-61 Revision 2 (Computer security incident handling guide) – Incident response guidance.
+
+NIST SP 800-171 – Protecting controlled unclassified information (CUI) in non-federal systems.
+
+NIST SP 800-30 – Guide for conducting risk assessments.
+
+=== ISO ===
+
+ISO/IEC 27001 – Standard for Information Security Management System (ISMS).
+
+ISO/IEC 27002 – Best practices for implementing controls.
+
+ISO/IEC 27701 – Privacy Information Management extension.
+
+
+COBIT (Control Objectives for Information and Related Technologies) – IT governance & management framework.
+
+ITIL (Information Technology Infrastructure Library) – IT service management best practices.
+
+TOGAF (The Open Group Architecture Framework) – Enterprise architecture framework.
+
+SOC 1 / SOC 2 / SOC 3 (Service Organization Control Reports) – External audits of service provider controls.
+
+
+=== Regulatory & Compliance Standards ===
+
+HIPAA – U.S. health data protection.
+
+SOX (Sarbanes-Oxley Act) – Corporate financial reporting requirements.
+
+GLBA (Gramm-Leach-Bliley Act) – Financial institutions protecting consumer data.
+
+PCI DSS (Payment Card Industry Data Security Standard) – Payment card transaction security.
+
+FISMA (Federal Information Security Management Act) – U.S. government systems security.
+
+FedRAMP (Federal Risk and Authorization Management Program) – Standardized cloud security assessment for federal agencies.
+
+GDPR (General Data Protection Regulation) – EU personal data privacy.
+
+CCPA (California Consumer Privacy Act) – California data privacy law.
+
+SOX, Basel III, FFIEC – Additional finance-related governance (less likely tested, but sometimes appear in study guides).
+
+
+=== Attack & Threat Models ===
+
+MITRE ATT&CK – Adversary TTP (tactics, techniques, procedures) database.
+
+Cyber Kill Chain (Lockheed Martin) – Attack stages: Recon → Weaponization → Delivery → Exploitation → Installation → C2 → Actions.
+
+Diamond Model of Intrusion Analysis – Analyzes relationships: adversary, infrastructure, capability, victim.
+
+OSSTMM (Open Source Security Testing Methodology Manual) – Peer-reviewed security testing methodology.
+
+OWASP (Open Web Application Security Project) – Top 10 web vulnerabilities and secure coding best practices.
+
+
+=== Business Continuity & Risk Management ===
+
+BIA (Business Impact Analysis) – Identifies critical systems/processes and potential impact of downtime.
+
+BCP (Business Continuity Plan) – How to maintain essential functions during a disruption.
+
+COOP (Continuity of Operations Plan) – Ensures essential operations continue during emergencies.
+
+DRP (Disaster Recovery Plan) – Restoring IT systems/data after disaster.
+
+CP (Contingency Plan) – Backup plan for unexpected events.
+
+ERM (Enterprise Risk Management) – Broad risk management across the organization.
+
+
+=== Access Control Models ===
+
+DAC (Discretionary Access Control) – Owner controls access (file permissions).
+
+MAC (Mandatory Access Control) – Access controlled by labels/classification levels.
+
+RBAC (Role-Based Access Control) – Based on user role/job function.
+
+ABAC (Attribute-Based Access Control) – Policy-based, using attributes (user, resource, environment).
+
+Rule-Based Access Control – Uses specific system-enforced rules (e.g., firewall ACLs).
+
+
+--------------------
+
+==== Port numbers ====
+
+20 – FTP (File Transfer Protocol, Data) – TCP
+Transfers file data between systems (active mode).
+
+21 – FTP (File Transfer Protocol, Control) – TCP
+Handles commands/control for file transfers.
+
+22 – SSH (Secure Shell) / SFTP (SSH File Transfer Protocol) / SCP (Secure Copy Protocol) – TCP
+Secure remote login, file transfer, and copy.
+
+23 – Telnet (Telecommunication Network) – TCP
+Remote login (insecure, sends plaintext).
+
+25 – SMTP (Simple Mail Transfer Protocol) – TCP
+Sends outgoing email between servers.
+
+53 – DNS (Domain Name System) – UDP (queries) / TCP (zone transfers)
+Translates domain names ↔ IP addresses.
+
+67/68 – DHCP (Dynamic Host Configuration Protocol) – UDP
+Assigns IP addresses and network configs to devices.
+
+69 – TFTP (Trivial File Transfer Protocol) – UDP
+Lightweight, insecure file transfers (no authentication).
+
+80 – HTTP (Hypertext Transfer Protocol) – TCP
+Standard web traffic (unencrypted).
+
+110 – POP3 (Post Office Protocol v3) – TCP
+Retrieves email from a mail server (downloads messages).
+
+119 – NNTP (Network News Transfer Protocol) – TCP
+Distributes Usenet news articles.
+
+123 – NTP (Network Time Protocol) – UDP
+Synchronizes system clocks across networks.
+
+135 – RPC (Remote Procedure Call, Microsoft DCOM Services) – TCP
+Used by Windows for service communication.
+
+137–139 – NetBIOS (Network Basic Input/Output System) – UDP/TCP
+Windows file/printer sharing and legacy communication.
+
+143 – IMAP (Internet Message Access Protocol) – TCP
+Retrieves email from server (keeps messages synced).
+
+161 – SNMP (Simple Network Management Protocol, queries) – UDP
+Queries devices (routers, switches, servers) for status.
+
+162 – SNMP (traps) – UDP
+Devices send alerts/events to monitoring system.
+
+389 – LDAP (Lightweight Directory Access Protocol) – TCP/UDP
+Accesses and maintains directory services (e.g., Active Directory).
+
+443 – HTTPS (Hypertext Transfer Protocol Secure) – TCP
+Encrypted web traffic (TLS/SSL).
+
+445 – SMB (Server Message Block) – TCP
+File/printer sharing in Windows networks.
+
+465/587 – SMTP Secure – TCP
+Sends email securely (encrypted with SSL/TLS).
+
+514 – Syslog – UDP
+Collects system and event logs over network.
+
+636 – LDAPS (Lightweight Directory Access Protocol Secure) – TCP
+Encrypted directory services (secure LDAP).
+
+860 – iSCSI (Internet Small Computer Systems Interface) – TCP
+Connects and manages storage devices over IP.
+
+989/990 – FTPS (FTP Secure) – TCP
+Secure FTP using TLS/SSL.
+
+993 – IMAPS (Internet Message Access Protocol Secure) – TCP
+Secure email retrieval (IMAP over TLS/SSL).
+
+995 – POP3S (Post Office Protocol v3 Secure) – TCP
+Secure email retrieval (POP3 over TLS/SSL).
+
+1433 – Microsoft SQL Server – TCP
+Database connections to SQL Server.
+
+1645/1646 – RADIUS (Remote Authentication Dial-In User Service, old) – UDP
+Authentication (1645) and accounting (1646) for remote access.
+
+1812/1813 – RADIUS (current) – UDP
+Authentication (1812) and accounting (1813) for remote access.
+
+3389 – RDP (Remote Desktop Protocol) – TCP/UDP
+Remote desktop access to Windows systems.
+
+5060 – SIP (Session Initiation Protocol, unsecure) – TCP/UDP
+Sets up, manages, and tears down VoIP calls.
+
+5061 – SIP Secure (TLS) – TCP
+Secure version of SIP (encrypted signaling).
+
+6514 – Syslog over TLS – TCP
+Secure event logging with encryption.
