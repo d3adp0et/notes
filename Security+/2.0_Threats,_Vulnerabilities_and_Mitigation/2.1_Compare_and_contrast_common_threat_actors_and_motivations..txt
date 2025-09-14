@@ -1,0 +1,58 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-13T03:49:00-04:00
+
+====== 2.1 Compare and contrast common threat actors and motivations. ======
+Created Wednesday 13 August 2025
+
+											{{./pasted_image_250813-001.png}}
+											
+
+===== # Threat Actors =====
+	+ Malicious peeps
+	+ Internal / External
+	+ Level of thier resources
+	+ level of sophistication
+
+	+ Reasons:
+		-+ Many
+
+==== Types ====
+	1. Nation States
+		a. APT (Advanced Persistent Threat) - Constant attack and massive resources
+		b. Eg: Stuxnet
+	2. Unskilled Attackers
+		a. unsophisticated
+		b. usually external
+		c. script kitties
+	3. Hacktivist
+		a. Eg: Anonymous
+	4. Insider Threat
+		a. Revenge?
+		b. Resource on the inside
+		c. Medium sophistication
+	5. Organized Crime
+		a. They need money
+	6. Shadow IT
+		a. Internal peeps Gone rouge '
+		b. Revenge
+		c. May not have IT training
+
+--------------------
+--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

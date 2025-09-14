@@ -1,0 +1,217 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-07-26T23:06:21-04:00
+
+====== 3.4 Explain the importance of resilience and recovery in security architecture. ======
+Created Saturday 26 July 2025
+
+															{{./pasted_image_250805.png}}
+
+===== # High Availability =====
+==== Load Balancing ====
+
+==== Server Clustering ====
+	+ Combine multiple servers into 1 server
+	+ Users only see 1 server
+	+ increase or decrease capacity and availability
+	+ same OS in all servers 
+
+	{{./pasted_image_250805-001.png}} 
+	 + Shared storage for better syncronization
+		-+ no independent write option
+
+--------------------
+
+===== # Site Considerations / Resiliency =====
+	+ Recovery site is prepped ( data is synced)
+	+ When disaster, business move here
+	+ When problem goes away, revert back to primary location.
+
+=== + Hot Site ===
+	-+ Exact same as OG site
+	-+ Constant update required of software and hardware
+	-+ Fast switching
+=== +Cold Site ===
+	-+ Completely Empty
+	-+ No Hardware / Data / People
+	-+ Bring everything with you
+=== + Warm Site ===
+	-+ Somewhere between cold and hot site
+	-+ Just enough to get going
+	-+ Eg: big room with rack space
+=== + Geograpic Dispersion ===
+	-+ keep recovery site far from OG site
+	-+ Eg: If Hurricane, tornado, floods etc  affects you, it will not affect the recovery site
+	-+ If very far, switching becomes challenging.
+	-+ Plan accordingly
+
+--------------------
+
+==== # Platform Diversity ====
+	+ Have different OSs
+	+ So that every system in org does not have the same undiscovered security flaws
+	+ Eg: Servers - linux, Clients- Mac / Win
+
+==== # Multi Cloud System ====
+	+ Have many cloud providers for the same reason (dispersion, outages etc)
+
+==== # Continuity of operations planning (COOP) ====
+	+ All systems fail
+	+ still continue working
+	+ Go back to PAPER
+	+ Eg: Paper flight tickets during Crowdstrike outage
+	+ Plan accordingly and document
+
+--------------------
+
+===== # Capacity Planning =====
+	+ Match supply to the demand
+	+ high demand and low supply - BAD
+	+ high supply and low demand - BAD
+	+ balance
+
+=== + People ===
+	-+ same again
+	-+ balance number of employees to amout of demand
+=== + Technology ===
+	-+ Pick tech that can scale
+	-+ load balancing in web servers
+	-+ Split database
+	-+ Balance cloud services
+=== + Infrastructure ===
+	-+ no of physical devices (purchase, configure, install)
+	-+ amt of cloud infrastructure (easy to deploy, less control)
+
+--------------------
+
+===== # Recovery Testing =====
+	+ test yourself before an actual event
+	+ have well defined rules of engagement
+	+ Evaluate response
+
+=== + Tabletop exercises ===
+	-+ actual testing takes a lot of money
+	-+ simulate it on a table top with other peeps (Key Players)
+
+=== + Fail over ===
+	{{./pasted_image_250805-002.png}}
+	-+ have multiple things ready, when things fail
+
+=== + Simulattion ===
+	-+ Test with simulated event
+	-+ Eg: phishing simulation
+		- this will test internal security : will the system identify it as phishing?
+		- will also test users : will they click?
+
+=== + Parallel processing ===
+	-+ split processes to multiple CPUs
+	-+ better performance
+	-+ better recovery (one fails, others handle)
+
+--------------------
+
+===== # Backups =====
+	+ have backup
+	+ many options
+		-+ amt of data
+		-+ type of backup
+		-+ backup media
+		-+ storage location
+		-+ backup and recovery software
+		-+ day of the week backup happens
+
+=== + On-site backups ===
+	-+ No internet required
+	-+ immediately available
+	-+ less expensive
+
+=== + Offsite backups ===
+	-+ transfer data over internet or WAN
+	-+ data available after disaster
+	-+ restoration can be performed from anywhere
+
+=== + Use BOTH ===
+
+=== + Frequency ===
+	-+ how often
+	-+ depends 
+	-+ plan accordingly
+
+=== + Encryption ===
+	-+ should be protected
+	-+ is still very important
+	-+ PLAN
+	-+ imp in cloud storage
+
+=== + Snapshot ===
+	-+ like in VM
+	-+ instant backup of the entire system
+	-+ rollback is easy
+
+	{{./pasted_image_250805-003.png}}
+
+=== + Recovery testing ===
+	-+ test what you are backing up
+	-+ to see if everything will work when actually needed
+
+=== + Replication ===
+	-+ An ongoing almost real time backup
+	-+ data synced in multiple location
+	-+ useful in a hot site
+
+=== + Journaling ===
+	-+ lose power while writing data to storage => corrupt
+	-+ recovery could be complicated
+	-+ implement jounaling
+	-+ write the data to a journal first and then write it to DB
+	-+ power loss when journal writing to DB: DB can recover data from journal
+
+--------------------
+
+===== # Power =====
+
+==== Power Resiliency ====
+	+ we need power
+	+ mitigate power issues
+
++ UPS (Uninterruptible Power Supply)
+	-+ short term backup power
+	-+ types
+		- Offline / standby UPS
+		- Line-interactive UPS - for brown outs
+		- On-line / Double-conversion UPS
+	-+ Auto shutdown, battery capacity, outlets, phone line suppression
+ 
++ Generators
+	-+ Long term power backup
+	-+ can power big areas
+	-+ it may take a few minutes to get the generator up to speed
+		-  use UPS during this time
+
+
+--------------------
+--------------------
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

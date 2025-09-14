@@ -1,0 +1,153 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T17:39:55-04:00
+
+====== 4.6 Identity and access management ======
+Created Wednesday 06 August 2025
+
+=== # Identity and Access Management (IAM) ===
+	+ starts with giving access and ends with revoking access
+	+ Access control
+	+ Authentication and authorization
+	+ track resource access - governance
+	
+=== # Provisioning and de-provisioning user accounts ===
+	+ hiring / transfers / promotions / job separation
+	+ core to the IAM process
+
+=== # Permisiion assignments ===
+	+ limited permission - enough to do the job (least privilage)
+	+ storage and files can be private to the user
+	+ no privilage access to the OS
+
+=== # Identity Proofing ===
+	+ background check
+	+ resolution
+	+ attestation / verification (passport / dl / in-person)
+
+=== # Gaining access ===
+	+ the process of gaining access to a resource
+	+ login etc (AAA)
+
+=== # Single Sign-on (SSO) ===
+	+ Eg: DUO gives SSO
+	+ OpenID
+	+ full access to all resources after single sign on for a limited time (say 24hrs)
+
+=== # Lightweight Directory Access Protocol (LDAP) - 389 port no ===
+	+ Authentication protocol
+	+ for accessing large directories over an IP network
+	+ An organized set of records, like a phone directory
+	+ X.500 specification was written by the International Telecommunication Union (ITU)
+	+ DAP (early version) ran on OSI Protocol Stack
+	+ LDAP is the protocol that is used to query and update an X.500 directory
+		-+ used in WIndows Active Directory, Apple OpenDirectory, Novell eDirectory etc
+
+{{./pasted_image_250909.png}}
+
+
+{{./pasted_image_250909-001.png}}
+
+=== # Security Assertion Markup Language (SAML) ===
+
+=== # OAuth (Spotify + alexa) ===
+
+=== # Federation (NEU + O'Reily) ===
+
+=== # Interoperatbility ===
+	+ when making final decision on what to use, see that all the components work well together, i.e., they are interoperable
+
+--------------------
+
+==== # Access Control ====
+
+=== 1. Least Privilege (ala carte) ===
+	a. exactly what they need to perform the job
+	b. no admin access
+	c. limits scope to malware
+=== 2. Mandatory Access Control (MAC) - classification on object ===
+	a. based on security clearance levels
+	b. Label: Confidential; Secret; top secret
+	c. Predefined rules: admin decides
+=== 3. Discretionary Access Control (DAC) - subject makes classfication ===
+	a. Person who creates data decides who has the access to the data
+	b. Used in OSs - like linux
+	c. like in google docs/sheets etc
+	d. weak security
+=== 4. Role-based access Control (RBAC) - classification on subject ===
+	a. depends on role in org
+	b. grps: manager; director; team lead; project manager
+	c. admin decides - makes grps and adds users to grps
+	d. windows OS - groups
+=== 5. Rule-based access control - subject follows rules made for object ===
+	a. generic term for following rules
+	b. admin makes rules
+	c. every object has associated rules- users need to comply
+	d. Eg: gain access b/w 9am to 5pm ; form can only be filled in chrome browser
+=== 6. Attribute-based access control (ABAC) ===
+	a. can consider many parameters
+	b. kind of next generation
+	c. parameters: resource information, IP Address, Time of day, desired action, relationship to the data, etc.
+=== 7. Time-of-day restriction ===
+	a. access depending on time (even time zone)
+	b. work with other controls
+
+--------------------
+
+==== # Multifactor Aunthentication ====
+
+=== Authentication Factors ===
+	1. Something you know - passwords/PIN; memorize
+	2. Something you have - smart card ID, USB security key, phone(sms etc)
+	3. Something you are - biometrics; used in conjunction with others
+	4. Somewhere you are - using location; ip address(IPv4 and not IPv6); GPS; 802.11 network
+
+--------------------
+
+==== # Password Security ====
+	+ high entropy
+	+ password age / expiration
+	+ password managers: bitlocker (encrypted; MFA)
+	+ passwordless: facial recognition, security key etc
+	+ passwordless should not be primary
+
+	+ Just-in-time permissions
+		-+ temp access
+		-+ Eg: techinician having admin rights when fixing a issue
+			- request issue from clearinhouse
+
+--------------------
+--------------------
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

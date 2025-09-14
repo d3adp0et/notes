@@ -1,0 +1,243 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T17:38:48-04:00
+
+====== 4.5 How to enhance security ======
+Created Wednesday 06 August 2025
+
+
+==== # Firewall ====
+=== 1. Network Based Firewall ===
+	a. Filter traffic by port number (Traditional) or application (NGFW)
+	b. NGFW - layer 7
+		1. Application layer gateway
+		2. stateful multilayer inspection
+		3. deep packet inspection
+=== 2. Firewall Rules ===
+	a. logic goes from top-to-bottom
+	b. Specific rules are on top and general rules are below
+	c. Implicit Deny - deny anything that has no rule governing it
+	d. Access Control Lists (ACLs)
+		1. allow/disallow list
+=== 3. Screened Subnet ===
+	a. only area of the network where internet access is allowed
+
+	{{./pasted_image_250907.png}}
+
+--------------------
+
+==== # IDS/ IPS ====
+=== Rules ===
+	a. Signature Based - matches signature data
+	b. Anomaly Based - identifies mal patterns
+	c. many rules
+	d. rule group customization
+	e. removing false positive / Alert "noise" takes precision and time
+
+--------------------
+
+==== # Web Filtering ====
+=== 1. Content Filtering ===
+	+ Corporate control of inbound and outbound data
+	+ Control of inapt content
+		-+ NSFW
+		-+ Parental Control
+
+=== 2. URL Scanning ===
+	a. URI - Uniform resource identifier
+	b. allow list / block list
+	c. managed by category: auction / hacking / malware / travel / recreation etc
+	d. often integrated with NGFW
+
+=== 3. Agent Based (mobile) ===
+	a. does not have to be in a firewall monitored network
+	b. mobile - users can be located anywhere
+	c. client software on user's device
+	d. cloud based updates
+
+=== 4. Proxies ===
+	a. Forward Proxies
+
+== + Block Rules ==
+	-+specific rules
+	-+ category rules
+== + Reputation ==
+	-+ Agood rep is allowed and vice versa
+	-+ Risk category: Trustworthy, Low risk, Medium risk, Suspicious, Hish risk
+	-+ Automated and manual
+
+=== 5. DNS Filtering ===
+	a. DNS Lookup
+	b. DNS is updated with real time threat intelligence
+	c. harmful sites are resolved
+	d. this is not only for web pages, any dns lookup
+
+--------------------
+
+==== # Operating Systems Security ====
+=== Active Directory ===
+	+ WINDOWS
+	+ A database of computers, user accounts, file shares, printers, groups and more
+	+ Manage Authentication
+	+ Centralized access control
+		-+ resource access on the baseis of groups and users
+	+ ued by help desk
+		-+ reset passwords, add / remove accounts
+
+=== Group Policy ===
+	+ An overlay of security policy over AD
+	+ used to manage computers or users
+		-+ local and domain policy
+		-+ Group policy management editor - a central console
+			- Login scripts
+			- Network configs - such as QoS
+			- Security parameters
+	+ Comprehensive control
+		-+ many options
+
+=== Security-Enhanced Linux (SELinux) ===
+	+ security patches for the linux kernel
+		-+ Adds mandatory access control (MAC) to linux [only admins can assign user access]
+		-+ traditional linux has discretionary access control (DAC)
+	+ Limits application access
+		-+ Least privilege
+		-+ A potential breach will have a limited scope
+		-+ Open Source
+
+--------------------
+
+==== # Implementation of Secure Protocols ====
+unencrypted protocols: Telnet, FTP, SMTP, IMAP
+=== Protocol Selection ===
+	+ use secure protocol
+	+ one which is encrypted
+	+ SSH instead of Telnet
+	+ HTTP(80) instead of HTTPS(443)
+	+ IMAPS instead if IMAP
+	+ FTP instead of SFTP
+
+=== Port Selection ===
+	+ use secure port (443 instead of 80)
+
+=== Transport Method ===
+	+ encryption of network
+	+ 802.11 Wireless
+		-+ Open access point: no transport level encryption
+		-+ WPA3: All user data is encrypted
+	+ VPN
+
+--------------------
+
+==== # Email Security ====
+	+ email spoofing
+=== Mail Gateway (maybe in a screened subnet)		RECIEVER ===
+	+ checks src validity
+
+=== Sender Policy Framework (SPF)		SENDER ===
+	+ when incharge for an email
+	+ These are allowed to send emails from our behalf
+	+ sender configures a list of all servers authorized to send emails for a domain
+	+ the list is added to a DNS TXT record
+		-+ for the recieving mail servers to see if incoming mail really did come form a authorized host
+
+=== Domain Keys Identified Mail (DKIM) ===
+	+ Digital signature added to the process of transporting and not message
+	+ Mail server digitally signs all outgoing mail
+		-+ the public key is in the DKIM TXT record
+	+ look at the header and find DKIM signature
+		-+ recieving server will query DNS server and find the TXT record with DKIM Signature to validate mail
+
+=== Doamin-based Message Authentication, Reporting and Conformation (DMARC) ===
+	+ an extension of DKIM and SPF
+	+ The domain owner decides what receiving email servers should do with emails not validating using SPF and DKIM
+		-+ This policy is written into a DNS TXT record
+		-+ Accept all, send to spam or reject the email
+	+ It also sends compliance report to email administrator
+		-+ a summary of emails that were legit and not legit
+	+ also added to the DNS server as a TXT record
+
+	EG:
+	{{./pasted_image_250907-001.png}}
+		1. id = DMARC1
+		2. if not authentidcated = quarantine
+		3. reporting engine = dmarcreports@example.com
+
+--------------------
+
+==== # Monitoring Data ====
+=== File Integrity Monitoring (FIM) ===
+	+ Monitor important OS and application files
+	+ monitor the files that should never change
+	+ FIM identifies when any change occurs
+		1. Windows - SFC (System File Checker)
+		2. Linux - Tripwire
+		3. Many host-based IPS can do so too!
+
+=== Data Loss Prevention ===
+	+ traffic monitoring
+	+ on ur computer: Endpoint DLP; Data in use
+	+ on ur network: Data in motion
+	+ on ur server: Data at rest
+
+=== USB Blocking ===
+	+ Eg: "agent.btz" ; worm virus that replicates
+
+=== Cloud Based DLP ===
+	+ similar to local just cloud
+
+=== DLP and email ===
+	+ critical risk vector
+	+ checks both inbound and outbound emails
+	+ Inbound rules: Block keywords, Identify imposters, quarantine email messages
+	+ Outbound rules: Fake wire transfer, W-2 transmissions (like SSN) , employee information
+	+ Eg: In 2016, outbound transfer of spreadsheet that appeared empty but had PII of 36000 boeing employees in hidden fields
+
+--------------------
+
+==== # Endpoint Security ====
+	+ personal devices
+	+ Defense in depth
+	
+=== + Control at the edge ===
+	-+ link to outside (like internet)
+	-+ static firewall rules
+=== + Access Control ===
+=== + Posture Assessment ===
+	-+ Done on all devices
+	-+ looking for any part of the device that is not up to date to latest security posture
+	-+ perform health check
+		- trust?
+		- AV?
+		- corpo apps installed?
+		- does not depend on OS
+	-+ 3 ways:
+		1. Persistent Agent - permanent installation; constant monitoring
+		2. Dissolved Agent - terminates after use
+		3. Agentless NAC - Integrated with AD; checks @ login and logoff; AD HOC
+
+	-+ if failed - quarantine now and redo test later
+
++ Endpoint Detection and Response (EDR)
+	-+ lightweight
+	-+ Behaviour analysis / ML
+	-+ Root cause analysis
+	-+ Response to the threat- isolate system; quarantine threat; rollback
+
++ Extended Detection and Response (XDR)
+	-+ better EDR
+	-+ XDR can interpret data from multiple systems simultaneously
+	-+ Endpoints, network and cloud
+	-+ uses behaviour analytics - watch for anything unusual
+
+--------------------
+--------------------
+
+
+
+
+
+
+
+
+
+

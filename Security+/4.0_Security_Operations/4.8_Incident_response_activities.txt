@@ -1,0 +1,84 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T17:40:10-04:00
+
+====== 4.8 Incident response activities ======
+Created Wednesday 06 August 2025
+
+=== 1. Preparing for an Incident ===
+	a. comms: phones and contact information
+	b. incident handling hardware and software
+	c. incident analysis resources: docs, network diagrams, baselines, critical hash values
+	d. policies
+	e. mitigation software: clean os etc
+=== 2. challenge of detection ===
+	a. source?
+	b. what are legit threats?
+	c. complexity
+=== 3. Analysis ===
+	a. web server log
+	b. direct threats
+	c. patch update calender
+	d. ids/ips
+	e. AV
+	f. host based monitoring
+	g. NAC
+=== 4. Isolation and containment ===
+	a. sandboxes
+	b. VM
+=== 5. Recovery ===
+	a. remove
+	b. disable
+	c. fic vuln
+	d. restore
+	e. rebuild 
+	f. replace
+=== 6. Lessons learned ===
+	a. what happened?
+	b. plans worked?
+	c. next time what to do?
+
+=== # Training for an incident ===
+	+ well before an incident can occur
+
+--------------------
+
+==== # Incident Planning ====
+
+=== Exercising ===
+	1. Tabletop Exercises
+	2. Simulation
+	3. Root cause analysis
+	4. Threat Hunting
+
+--------------------
+
+==== # Digital Forensics ====
+
+	1. Forensics
+	2. Legal Hold
+		a. sent to custodians
+		b. should be safe - can be needed by court
+	3. Chain of custody
+		a. control evidence
+		b. hashes and digital signatures
+	4. Acquisition
+		a. obtain data
+		b. from different location and different systems
+		c. VM - snapshot
+	5. Reporting
+	6. Preservation
+	7. E-discovery
+		a. collect
+		b. prepare
+		c. review
+		d. interpret
+		e. and produce e-decuments
+		f. no analysis and just discovery
+
+--------------------
+--------------------
+
+
+
+

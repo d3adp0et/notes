@@ -1,0 +1,443 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-07-26T23:05:49-04:00
+
+====== 3.2 Given a scenario, apply security principles to secure enterprise infrastructure. ======
+Created Saturday 26 July 2025
+
+									  {{./pasted_image_250731.png}}\
+
+
+===== # Infrastructure Considerations (regarding security ig) =====
+
+==== Device placement ====
+	+ every network is diff  ( a manufacturing env v/s a medical env )
+		-+ still has similarities
+	+ Common: Firewalls -> seperate trusted from untrusted.
+	+ Other options: Honeypots, Jump servers, Load balancers, Sensors on the network.
+
+--------------------
+
+==== Security Zones ====
+	+ Logical seperation of all the devices in the network based on their use or access type
+	+ different than IP Address range or subnet description  
+	+ Eg: Trusted/Untrusted , Internal/External , Inside/Internet/Servers/Database/Screened etc
+	+ Better rule-making
+		-+ Eg: send data allow = Trusted to Untrusted 
+
+	{{./pasted_image_250731-001.png}}
+
+--------------------
+
+==== Attack Surface ====
+	+ Ways in which an attacker can get into the network (potential openings)
+	+ Anything can be vulnerable
+		-+ Application code
+		-+ open ports
+		-+ Authentication process
+		-+ Human Error
+	+ Goal for you: Minimize the size of this attack surface
+		-+ audit the code
+		-+ block ports on firewall
+		-+ monitor real time network traffic
+
+--------------------
+
+==== Connectivity ====
+	+ make network connects secure too
+	+ ways for you
+		-+ Secure network cabling
+		-+ application level encryption is best
+		-+ for offsite connections: IP Tunnels/VPN Connections so that people from outside can connect to the office networkw
+	
+--------------------
+
+==== Intrusion Prevention System (IPS) ====
+	+ Watch traffic traverse the network in real time
+	+ Intrusions
+		-+ Exploit against OS, Applications etc
+		-+ Buffer Overflows, XSS, other vulnerabilities
+	+ Detection vs Prevention
+		-+ IDS => Alarm or alert (but does nothing)
+		-+ IPS => Stop it before it gets into the network
+		
+=== + Failure modes ===
+	-+ Hope: 100% uptime - not possible - IPS/IDS will break someday
+		- **Fail-open :** P/D systen fails -> data continues to flow
+		- **Fail-closed : P/D** system fails -> data does not flow
+
+=== + Device Connections ===
+	-+ Active Monitoring (FAILURE MODE MATTER HERE)
+		{{./pasted_image_250801.png}}
+		- System is connected inline
+		- data can be blocked in real time as it passes
+		- Intrusion prevention is commonly active
+
+		1. IDS/IPS sits physically inline - all traffic passes through them
+		2. Malicious traffic is immediately identified - and dropped at the IPS - hence does not proceed into the network
+
+		**NOTE: Some company do not want aggressive active monitoring or latency because of in-line IPS/IDS hence they go with passive monitoring**
+		
+	-+ Passive Monitoring
+		{{./pasted_image_250801-001.png}}
+		All devices are connected to a switch and the switch transfers a copy of the network to IPS/IDS.
+		
+		- A copy of the network traffic is examined using a //tap// or a //port monitor.//
+		- Data cannot be blocked in real time
+		- Intrusion detection is commonly passive
+
+		1. Examine a copy of the traffic - Port mirror (SPAN), network tap
+			a. SPAN - Switch Port ANalyzer
+		2. All and Any traffic traversing the network passes through this switch and there 2 copies are made: 1 goes to the destination as intended and the other goes to the IPS/IDS.
+		3. No way to block/prevent the traffic (because the prevention/detection system itself is not on the network) - common with IDS system
+
+--------------------
+
+==== Network Appliances ====
+=== + Jump Server ===
+	{{./pasted_image_250801-002.png}}
+
+	-+ Acces secure network zones - from outside
+	-+ Jump server: highly secure device on the inside that is - hardened - and - monitored
+	-+ 2 step process:
+		1. SSH / Tunnel / VPN to the jump server
+		2. RDP / SSH or jump from there to any device inside the network
+	-+ VERY IMP DEVICE: should be very secure - as a compromised jump server is a significant breach.
+	-+ //cannot harden all the devices, hence make 1 single VERY SECURE  point of entry from outside.//
+
+=== + Proxies ===
+	{{./pasted_image_250801-003.png}}
+
+	-+ sits between the users and the external network (like internet)
+	-+ user sends request to the proxy -> the proxy recieves and send the request outside on their behalf
+	-+ Why use proxy?
+		- Caching Information : cache is stored in the proxy so saves time if different end users make same request.
+		- Access Control
+		- URL Filtering
+		- Content scanning
+	-+ 2 ways a proxy sits in between
+		- Explicit: Applications / End Users need to know hoe to connect to the proxy
+		- Transparent: Applications / End Users do not a proxy exists
+
+	-+ Types
+		- NAT : one of the simplest proxy that performs public / private IP Address translation [network level proxy]
+		- Application Proxy (commonly used) : It understand the way an application works
+			> a proxy may only know 1 application : HTTP proxy
+			> OR it may know many : HTTP, HTTPS, FTP, etc
+		- Forward Proxy ( Internal proxy )
+			{{./pasted_image_250801-008.png}}
+			
+			> commonly used to protect and control user access to the internet
+			>  Access Control , URL filtering
+
+		- Reverse Proxy
+			{{./pasted_image_250801-009.png}}
+
+			> If someone want to connect to an internal web server, there is no direct connection
+				Instead they connect to a proxy server which acts as the web server and communicates privately with the web server
+			> Additional layer of security
+			> Content Filtering, Caching Information (many web servers inside a network)
+
+		- Open Proxy (Uncontrolled Proxy)
+			{{./pasted_image_250801-010.png}}
+
+			>  significant securty concern: as anyone on the internet can use them
+			> Often used to circumvent existing security controls: mask your identity to any service on the internet
+			> Problem for you: these are maintained by third party that cannot be trusted everytime. They may include ads and/or malicious code
+			> Blocked in most organisations.  
+
+=== + Load Balancer ===
+	-+ distribute load.
+	-+ Invisible to the end-user
+	-+ especially useful in large scale. Eg: Web server farms, database farms
+	-+ Fault tolerance
+		- Server outages have no effect
+		- very fast coverage (end users are not affected at all)
+	-+ Active/Active load balancing
+		- Configurable load : load balancer can manage load across server
+		- TCP offload : no TCP/IP protocol work for servers, this is handled by the LB (hence less resource usage)
+		- SSL offload : Encryption/Decryption can also be done at the LB instead of each server doing individually (causes extra resource usage)
+		- Caching : similar to a proxy
+		- Priortization : QoS (Quality of Service) 
+			> QoS is a set of technologies used in networking to prioritize and manage network traffic, ensuring that critical applications receive the resources they need, even under heavy network load.
+		- Content Switching : Application-centric balancing - load given according the applications that the servers are running.
+	-+ Active/Passive load balancing
+		- similar to active/active but here we also have passive servers.
+		- In case any active load balancer becomes unusable (downtime), one of the passive server becomes active.
+		- This shift is handled by the load balancer.
+
+=== + Sensors and collectors ===
+	-+ Aggregation
+		- from network devices
+			> Built-in sensors, seperate device (only use is to collect data on network)
+			> These can be integrated into switches, routers, servers, firewalls, etc.
+		- from logs 
+			> IPS, firewall logs, auth logs, web serverlogs, database transaction logs, email logs.
+	-+ Collectors
+		- Proprietory consoles (IPS, firewall), SIEM consoles, syslog servers
+		- Many SIEMs include a correlation engine to compare diverse sensor data.
+
+--------------------
+
+==== Port Security ====
++ Security on the individual interfaces on the switch or connections to a wireless AP.
++ Commonly used in wireless network (but not limited to - can also be done on swithes)
++Eg: credentials for a wlanf
+
+=== + EAP (Extensible Authentication Protocol) ===
+	-+ Protocol that allows the port security to operate
+	-+ Backend  of port security 
+	-+ A framework that can be applied to different networks and connection
+		- Hence manufacturers can build thier own EAP methods according to their requirements.
+	-+ **EAP integrates with 802.1X** (common)
+		- IEEE std process that manages the authentication process for users and devices onto their network.
+		- Prevents access to the network until the authentication succeeds.
+		
+=== + IEEE 802.1X ===
+	-+ Port-based Network Access Control (NAC) (other term)
+	-+ Until someone does not authenticate themselves to the NAC they do not get access. (via physical switches or wireless AP)
+	-+ 802.1X is also used in conjuntion with other authentication protocols and databases such as:
+		- RADIUS
+		- LDAP
+		- TACACS+
+		- Kerberos etc
+
+=== + Process ===
+	-+ Supplicant : the client
+	-+ Authenticator : the device that provides access (a switch?)
+	-+ Authentication server : backend server that validates the client credentials
+
+	{{./pasted_image_250804.png}}
+
+				|				Intialization:						|												|
+				---------------------------------------------------->
+								No communication
+								    
+									   Anyone new?
+				<----------------------------------------------------
+							EAP-Request (login request)
+ 
+									   My name is A									     A is here
+				----------------------------------------------------> ---------------------------------------------------->
+									 EAP-Response							Accepting logins or not
+
+									  Can you talk?							    Ask A if we can speak privately
+				<---------------------------------------------------- <----------------------------------------------------
+									Additional detail request   				     Ask additional detail for authentication
+
+							Sure here's my credentials							    Here's A's credentials
+				----------------------------------------------------> ----------------------------------------------------->
+						Sends credentials to authenticator					 Auth sends credentials to server
+
+																						Let A in
+																	   <----------------------------------------------------
+																				If credentials are correnct
+
+
+--------------------
+
+==== Firewall Types ====
+
++ They are everywhere: Home, office, and even in OS
++ Controls the flow of network traffic
+	-+ As everything passes through firewall
++ Corporate control of outbound and inbound traffic
+	-+ control sensitive material
++ Control of inappropriate content
+	-+ NSFW, Parental control
++ Protect against mal intent
+	-+ Anti-virus, Anti-malware
+
+=== + Network-based firewall ===
+	-+ Traditional v/s Modern (next generation -NGFW) network based firewalls
+		- traditional ones can block traffic by port number(TCP/USP) - OSI Layer 4
+		- NGFW can block traffic by the application usage - OSI Layer 7
+	-+ They can also enrypt traffic and act as VPN between sites
+	-+ Most firewalls can also perform as layer 3 devices (routers)
+		- Often sits on the ingress/egress (edge) of the network
+		- Also provide NAT functionality
+		- Authenticate dynamic routing communication
+
+=== + UTM (Unified Threat Management) ===
+	-+ Also called, All-in-one security appliance / Web security gateway
+	-+Services:
+		- URL filter / Content inspection
+		- Malware inspection
+		- Spam filter
+		- CSU / DSU (Chanel / Data Service Unit) 
+			> //a networking device that connects a digital telecommunications line (like a T1 or E1 line) to a customer's local network, typically through a router. It acts as a translator between 		the digital signals used by the telecommunications provider and the signals used by the customer's equipment.//
+		- Router, Switch
+		- Firewall
+		- IDS / IPS
+		- Bandwidth shaper
+		- VPN Endpoint (outside connection point for inside env)
+	-+ Challenges
+		- Operates at Layer 4 ONLY
+			> Hence can only inspect port numbers
+		- As it has so many features in a single device often provides a drawback in functionality and performance.
+			> So only can applu a few of these features
+			> Otherwise the device will slow down
+
+=== + Next-Generation Firewall (NGFW) ===
+	-+ OSI Layer 7 - All data in every packet can be seen
+	-+ Other names
+		- Apllication layer gateway
+		- Stateful multilayer inspection
+		- Deep packet inspection
+	-+ It can do advanced decoding
+		- Every packet is analyzed and categorized before a security decision is determined
+	-+ Controls traffic flows based on the application in use
+		- Eg: Microsoft SQL server is allowed
+		- Viewing twitter is allowed but not posting on it.
+		- Watching youtube is not allowed
+		- These application might be using the same ports but as the NGFW is on layer 7 it can focus on individual applications.
+	-+ Can also act as an IPS
+		- Identify the application
+		- Apply application-specific vulnerability signatures to the traffic
+	-+ Content Filtering
+		- URL filters : Certain websites are allowed / disallowed
+		- Control website traffic by category 
+			> like all gambling sites are not allowed
+			> Or individual sites are blocked such as Yahoo.com or Facebook.com
+
+	{{./pasted_image_250804-001.png}}  
+
+=== + Web application firewall (WAF) ===
+	-+ Unlike every other firewall
+	-+ Applies rules to HTTP/HTTPS conversation
+	-+ It can allow or deny traffic based on expected input
+		- Unexpected input is a common method of exploiting an application
+		- Eg: SQL injection
+	-+ It can work along with a NGFW, as both of them perform different types of checks 
+	-+ Payment Card Industry Data Security Standard (PCI DSS) has mandated to use WAF to protect credit card based applications
+	{{./pasted_image_250804-002.png}}
+
+--------------------
+
+===== # Secure Communication / Access =====
+
+==== Virtual Private Networks (VPNs) ====
+	+ An encrypted (private) data traversing a public network
+	+ Concentrator (VPN server side): point of contact for any outside workstation
+		-+ Encryption/decryption access device
+		-+ Often integrated into a firewall
+	+ Deployment options for concentrator
+		1. Specialized cryptographic hardware
+		2. Software-based options are also available
+	+ On the client side (outside workstation)
+		-+ a client software is present
+		-+ sometimes this comes built-in with the OS
+
+	{{./pasted_image_250804-003.png}}
+		-+ the red tunnel is encrypted area 
+		-+ green tunnel in unincrypted
+	
+=== + Encrypted Tunnel ===
+	-+  Data is private / encrypted across the public internet
+	-+ When encrypted: new headers and trailers are added to the packet
+	{{./pasted_image_250804-004.png}}
+
+--------------------
+
+==== Tunneling ====
+
+=== + SSL / TLS VPN (Secure Sockets Layer / Transport Layer Security VPN) ===
+	-+ Remote Access VPNs
+	-+ Uses common SSL / TLS protocol (tcp/443)
+		- It is common so (almost) no firewall issues!
+	-+ No big VPN clients
+		- usually remote access communication
+	-+ User authentication does not require digital certs or shared password (like IPsec)
+	-+ It is very light
+		- Can be run from a browser or a light VPN client
+		- Hence no installation required
+
+	-+ On-demand access from a remote device
+		- client connects to the VPN concentrator
+	-+ Some clients can be configured as always-on
+
+=== + Site-to-Site / IPsec VPN ===
+	-+ they are Always-on (almost - can have downtime)
+	-+ Firewalls often act as VPN concentrator
+	-+ No special configuration required on every client system
+	
+	{{./pasted_image_250805.png}}
+
+--------------------
+
+==== SD-WAN ====
+	+ Software Defined networking in a Wide Area Network
+	+ It is especially built with cloud databases / servers in mind
+	+ Old systems had 1 physical data center to which remote sites connected, but now there are cloud databases and services available.
+	+ To make information retrieval much more efficient, SD-WAN was developed.
+
+	{{./pasted_image_250805-001.png}}     {{./pasted_image_250805-002.png}}     {{./pasted_image_250805-005.png}}
+									 OLD SYSTEM							    --->					    Cloud Databases Introduced			             --->				  		NEW SYSTEM with SD-WAN   
+
+--------------------
+
+Now we have a method of communication but no SECURE connection like VPN which were used in normal communications...
+We need something similar for the cloud based Infrastructure - SECURELY CONNECT FROM DIFFERENT LOCATIONS...
+We need **SASE.**
+
+==== Secure Access Service Edge (SASE) ====
+	+ A "next generation" VPN
+	+ Required security techs are in the cloud
+		-+ usually located close to existing cloud services
+	+ At last, we need SASE clients on all devices (end-points) to connect to the cloud (SECURELY)
+
+	{{./pasted_image_250805-006.png}}
+
+--------------------
+
+===== # At Last, Selection of a Effective control is required =====
+	+ There are many different security options to choose from
+		-+ and selecting the right one can be challenging
+
+	1. VPN
+		a. SSL/TLS VPN for user access
+		b. IPsec tunnels for site-to-site access
+	2. SD-WAN 
+		a. Manage network connectivity to the cloud
+		b. Does not adequately address security concerns
+	3. SASE
+		a. A complete network and security solution
+		b. Requires planning and implementation
+
+
+--------------------
+--------------------
+
+
+
+
+
+
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

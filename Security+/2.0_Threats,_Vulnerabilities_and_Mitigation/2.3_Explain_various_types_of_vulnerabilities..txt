@@ -1,0 +1,94 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-13T17:12:13-04:00
+
+
+====== 2.3 Explain various types of vulnerabilities. ======
+Created Wednesday 13 August 2025
+
+											{{./pasted_image_250813.png}}
+
+
+==== # Application ====
+=== 1. Memory Injection ===
+	a. malware runs in memory, where many processes are present
+		1. DLLs, Threads, Buffer, Memory management functions
+	b. DLL Injection
+	{{./pasted_image_250813-001.png}}
+
+=== 2. Buffer Overflow ===
+	a. a really useful bufferoverflow is **repeatable**
+
+=== 3. Race Conditions ===
+	a. a programming conundrum
+	b. TOCTOU -> time-of check to time-of-use  attack -> when an application is used using the results of a relatively older system check (a process might have occured then)
+		1. Eg: Deposits to the account are immediate and the withdrawals are not
+=== 4. Software Update ===
+	a. have backup if something goes wrong in update
+	b. trustful sources
+	c. Automatic updates
+		1. Eg: Attackers gained acces to solarwinds development systes and added their own code to the next update
+		2. hence gaining access to many govn agencies and companies
+
+==== # Operating systems ====
+	a. keep it updated - monthly or on demand
+	b. more complex - more security issues
+	c. Eg: windows has patch tuesdays - 2nd tuesday of every month
+	d. Eg: May 9 2023 - Nearly 50 security patches by Windows
+		1. 8 elevation of privilege vulnerabilities
+		2. 4 security feature bypass vuln
+		3. 12 remote code execution vuln
+		4. 8 info disclosure vuln
+		5. 5 denial of service vuln
+		6. 1 spoofing vuln
+
+==== # Web Based ====
+=== 1. SQL Injection (SQLi) ===
+	1. Eg: Website code ->  "SELECT * FROM users WHERE name = '<enter username>'";
+			   Code Injection -> "SELECT * FROM users WHERE name = '<enter username>//**' OR '1' = '1**//'";            'OR '1' = '1 is the injected code along with the username (which is always true)
+
+=== 2. Cross site scripting (XSS) ===
+	{{./pasted_image_250814.png}}
+	a. Non-persistent (reflected) XSS attack
+		1. Website allows JS scripts to run in user input
+		2. attacker emails a link that takes advantage of this vuln - runs a script that send creds/session IDs/cookies to the attacker
+		3. the attacker uses these to steal victim's info without their knowledge
+	b. Persistent XSS attack
+		1. attacker posts a message to a social netowork
+		2. It is persistent -> Everyone gets the payload
+	c. Eg: June 20177, Aaron Guzman
+		1. when authenticating with subaru, users get a token that never expires
+		2. A valid token allowed any service request
+			a. Even adding your email addr to someone else's acc - giving access to someone else's car
+		3. Web front end included and XSS vuln
+			a. A user clicka mal link and you have their access token
+	d. Protection:
+		1. do not click link
+		2. disable or control JS
+		3. keep browser and app updated
+
+==== # Hardware vulnerabilities ====
+	1. many riskslike IoT
+	2. Firmware - OS of hardware devices OR something that communicates between software and hardware
+	3. Eg: Trane Comfortlink II thermostats : control the temp from your phone
+		a. Trane notified of 3 vuln - 2 patched after an year and 1 after 2 years
+	4. EOL notice (end of life)
+		a. after EOL comes EOSL (end of service life) - that may have permium cost support options
+	5. Legacy Platform
+		a. device with old OS, app or middleware
+		b. may have EOL software
+		c. may require extra security - if cannot remove immediately
+
+# Virtualization
+	1. same security as physical OSs
+	2. VM Escape: break out of one VM and and interact with another VM or host OS or hardware
+		a. great control
+		b. Pwn2Own competition - march 2017
+
+
+
+ 
+
+
+
+

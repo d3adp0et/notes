@@ -1,0 +1,119 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-13T04:06:12-04:00
+
+====== 2.2 Explain common threat vectors and attack surfaces. ======
+Created Wednesday 13 August 2025
+
+											{{./pasted_image_250813.png}}
+
+==== # Threat Vectors ====
+	+ A method used by the attacker
+	+ basically Vulnerabilites
+
+=== Types: ===
+	1. Message based vectors
+		a. Email
+		b. SMS
+			1. phishing
+			2. smshing
+				a. invoice / crypto scam
+	2. Image based vectors
+		a. SVG - scalable vector graphic : Image is described in XML
+			1. HTML injection
+			2. JS attack code - XSS attack (browser can avoid this)
+	3. File based vectors
+		a. .exe
+		b. .pdf
+		c. .zip / .rar etc
+		d. macros in microsoft
+	4. Voice call based vectors
+		a. Vishing
+		b. Spam over IP - large scale phone calls
+		c. War Dialing - ?
+		d. call tempering
+	5. Removable device vectors
+		a. USB drive
+		b. infect air gap
+		c. BadUSB - HID hacking
+	6. Vulnerable software vectors
+		a. Infected exe
+		b. unknown vuln
+		c. constant update necessary
+	7. Unsupported systems vectors
+		a. "no patching anymore" systems
+		b. bad
+		c. identify them
+	8. Unsecure network vectors
+		a. wireless and wired network vuln
+		b. view unencrypted data
+		c. Wireless : latest protocol - WPA3
+		d. Wired:  enable 802.1X - authetication protocol 
+	9. Open service ports
+		a. TCP/UDP
+		b. every application has own ports
+		c. firewall rules on ports
+	10. Default creds
+		a. change them
+	11. Supply chain vectors
+		a. tamper with underlying infra
+		b. Managed service provider (MSPs)
+		c. Vendors
+			1. Eg: 2013 Target credit card breach
+		d. Suppliers - counterfiet networking equipment - Install backdoors, std performance and availability though
+			1. Eg: 2020 - Fake Cisco Catalyst switches
+	12. Human Vector / Social Engg
+		a. Phishing
+			1. do not trust email sources
+			2. slight changes in email address
+			3. Typosquatting - URL hijacking
+			4. Lying - pretexting
+		b. Vishing / Smishing
+		c. Impersonation - Eg: Indian Scam Calls (Pretext)
+			1. Identity Fraud / Credit card / Bank / Loan Fraud
+			2. never volunteer information / Verify
+		d. Watering hole attack - In case nothing of the above works
+			1. determine which website the victim group goes to
+				a. Local coffee shop / sandwhich shop
+				b. Industry related sites
+			2. Infect one of these 3rd party sites
+			3. OR Infect all visitors
+			4. Eg: Polish financial supervision authority, National Banking and Stock Commission of Mexico, State-owned bank in Uruguay
+				a. visiting the site would download mal JS files
+				b. but only to IP addressees matching banks and other financial institutions 
+				c. we do not know if this worked
+			5. Defense in Depth
+	13. Misinformation / Disinformation
+		a. Create confusion and division
+		b. Influence campaigns
+		c. Nation state actors: Divide and Conquer
+		d. Enabled to social media
+		e. Fake users : lex's monkeys
+	14. Brand Impersoantion
+		a. Pretent to be well known brand - McD, Coca Cola etc
+		b. Create 7643918264 of impersonation sites
+			1. get into google index, click an ad, get a whatsapp msg
+			2. visitors are presented with pop ups that rigged well malware
+
+--------------------
+--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

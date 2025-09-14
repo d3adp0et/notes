@@ -1,0 +1,78 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T17:37:04-04:00
+
+====== 4.2 Hardware, Software & Data asset management ======
+Created Wednesday 06 August 2025
+
+==== # Acquisition/procurement process ====
+	+ the purchasing process
+	1. Start with a request from the user
+	2. Negotiate with suppliers
+	3. Purchasing, invoice and payment 
+
+==== # Assignment / Accounting ====
+	+ A central asset(item) tracking system
+=== 1. Ownership ===
+	a. person association
+=== 2. Classification ===
+	a. type of asset / hardware(capital expenditure) or software(operating expenditure)
+
+==== # Monitoring / asset tracking ====
+	+ inventory every asset
+	+ associate a support ticket with a device make and model
+	+ Enumeration
+		-+ list all parts of the asset
+		-+ CPU, memory, storage drive, keyboard, mouse
+	+ asset tag
+		-+ barcode, RFID, visible tracking number etc
+
+--------------------
+
+==== # Disposal / decomissioning ====
+=== Media Santization ===
+	+ Different levels
+	1. Complete wipe of a drive for future use
+	2. Deleting only a few files and use for something else
+
+	+ No recovery should be possible
+
+=== Physical Destruction ===
+	+ Drill a hard drive! 
+	+ Shredder / pulverizer
+	+ Degaussing - Electromagnetic
+	+ Incineration
+
+=== Certificate of destruction ===
+	+ 3rd party destruction
+	+ confirmation by a certificate
+	+ used when a lot of things are to be destroyed
+
+=== Data Retention ===
+	+ data backup
+	+ regulatory compliance - a certain amt of data backup may be required by law
+		-+ Eg: a certain office might have a rule to keep emails for atleast 2 months etc..
+	+ May be needed during: accidental deletion, disaster recovery
+	+ Differentiate by type and application - so that recovery is not an hassel (do not name a backup "backup part 1")
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

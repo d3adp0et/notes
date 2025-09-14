@@ -1,0 +1,131 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T17:38:43-04:00
+
+====== 4.4 Alerting and Monitoring concepts and tools ======
+Created Wednesday 06 August 2025
+
+==== # Security Monitoring ====
+	+ Always monitor
+	+ logins, services, access
+	+ React to security event
+	+ status dashboards 
+
+==== # What to monitor - Computing Resources ====
+	+ Systems
+		-+ Authentication
+		-+ Server Monitoring
+	+ Applications
+		-+ Availability
+		-+ Data transfer - traffic
+		-+ Security notifications between devs and manufacturers
+	+ Infrastructure
+		-+ Remote access systems
+		-+ Firewall and IPS reports
+
+--------------------
+
+==== # Actiities ====
+=== Log Aggregation - SIEM ===
+	+ centralized reporting
+	+ corelation and stats
+
+=== Alerting ===
+	+ real time notification: large file transfer, inc in auth errors
+	+ actionable data: keep the right peeps informed
+	+ notification methods: SMS, mail, SOC
+
+=== Scanning ===
+	+ Constant scanning
+	+ OSs, drivers, apps, anomalies
+
+=== Reporting ===
+	+ actionable reports- playbooks kinda
+	+ status info
+	+ Ad hoc info summary - future problems 
+
+=== Archiving ===
+	+ access to data is critical
+	+ may have a mandate
+
+=== Alert response and remediation/validation ===
+	+ Quarantine
+	+ Alert tuning - good accuracy
+
+--------------------
+
+==== # Tools ====
+=== Security Content Automation Protocol (SCAP) ===
+	+ Managed by NIST 
+	+ Allows many different sec tools in market to identify and act on the same criteria
+	+ manage diff vuln between diff OS
+	+ automation
+
+=== Benchmarks ===
+	+ best practices
+	+ popular benchmarks - Center of Internet Security (CIS)
+
+=== Agent / Agentless ===
+	+ check to see if the device is compliant
+	+ Agent: always on always running, regular updates
+	+ Agentless: performs check then disappears, regular updates not required, no inform/alert when not run
+
+=== SIEM - Security Information and Event Management ===
+	+ log collection
+	+ aggregation
+	+ long term storage
+	+ Data correlation
+	+ Forensice analysis
+
+=== AntiVirus / Anti Malware ===
+
+=== Data Loss Prevention (DLP) ===
+	+ look for and block any data you do not want to run
+	+ Stop Data leakage
+	+ DLP can be used on endpoints and cloud based systems (email, storage etc)
+
+=== SNMP - Simple Network management protocol ===
+	+ A database of data - Management Information Base (MIB)
+	+ the database contains OIDs - Object Identifiers
+	+ poll devices over udp/161
+
+		{{./pasted_image_250824.png}}
+		
+	+ Requests stats form a device - server, firewall, workstation, switc, router, etc
+	+ Poll Devices at fixed intervals
+	+ make graphs
+
+	+ SNMP Traps
+		-+ configured on the monitoring devices - communicated over udp/162
+		-+ Set a threshold for alerts
+			- If the no of errors increases by 5 -> send a trap
+			- this trap will make the monitoring system react immediately, hence sending alerts
+
+=== NetFlow ===
+	+ gather traffic stats from all traffic flows
+	+ netflow is a std collection method - many products and options
+	+ Probe and Collectors are used
+		-+ Probe watches the network comms
+		-+ Summary records are sent to the collector
+	+ then make report (3rd party - Eg: solarwinds)
+
+=== Vuln Scanners ===
+	+ no exploits are performed
+	+ port scanners
+	+ Passive
+	+ A lot of info -  find good info
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

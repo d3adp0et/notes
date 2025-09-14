@@ -1,0 +1,209 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T17:36:58-04:00
+
+====== 4.1 Security techniques to computing resources ======
+Created Wednesday 06 August 2025
+
+==== # Security Baselines ====
+=== 1. Establish ===
+	a. create a series of foundational security policies
+	b. often avaiable from the manufacturer (OS / application / appliance)
+=== 2. Deploy ===
+	a. we have established security baseline
+	b. now we need to deploy them - usually managed through a centrally administered console
+	c. may require multiple deployment mechanisms - AD group policy, MDM etc.
+	d. Automation - deploye to many devices at the same time
+=== 3. Maintain ===
+	a. may require updates
+		1. due to a new vuln
+		2. due to a new deployment
+		3. due to a new OS
+	b. test and measure to avoid conflicts
+
+==== # Hardening Guides ====
+	+ system not secure by default
+	+ check hardening guides
+=== 1. Mobile Devices ===
+	a. phones,tablets etc
+	b. hardening checklists are available from manufacturers
+	c. updates!
+	d. segmentation of data
+	e. for managing many devices at once: MDM - Mobile Device Manager
+=== 2. WorkStations ===
+	a. desktops and laptops
+	b. OS, applications, firmware
+	c. automate monthly patches
+	d. connect to a policy management system - Active Directory (AD) froup policy
+	e. remove unnecessary softwares
+=== 3. Network infra devices ===
+	a. switches, routers etc
+	b. Purpose built device:
+		1. Embedded OS, limited OS access
+	c. Change default authentication
+	d. Security updates -> check with manufacturer
+		1. not updated that frequently
+=== 4. Cloud infrastructure ===
+	a. least privilege
+	b. configure **EDR (endpoint detection and response)** - all devices accessing the cloud should be secure
+	c. Always have backups (Cloud to Cloud)
+=== 5. Servers ===
+	a. Different OSs
+	b. Update - OS, service packs, security patches
+	c. User acc - min pwd length and complexity, acc limitations
+	d. Network access and security
+	e. Monitor and secure - AV, Anti malware, EDR
+=== 6. SCADA / ICS ===
+	a. requires extensive segmentaion
+	b. airgap
+=== 7. Embedded system ===
+	a. limited access to OS
+	b. difficult to upgrade
+	c. up to date
+	d. put in a segmented network and firewall
+=== 8. RTOS (real time OS) ===
+	a. isolate the system
+	b. run with minimum services
+	c. use secure communication - host based firewall
+=== 9. IoT Devices ===
+	a. weak defaults
+	b. deploy updates quickly
+	c. Segmentation
+
+--------------------
+
+==== # Wireless Devices ====
+=== 1. Site Surveys ===
+	a. determine existing wireless landscape
+	b. identify APs
+	c. do regularly
+=== 2. Heat Map ===
+	a. signal strength map
+{{./pasted_image_250822-001.png}}
+
+=== 3. Wireless Survey tools ===
+	a. signal coverage
+	b. potential interference
+	c. built-in tools
+	d. 3rd party tools - eg NetSpot
+	e. Spectrum Analyzer - all signals
+
+--------------------
+
+==== # Mobile Solutions ====
+=== 1. Mobile Device Manager (MDM) ===
+	a. manage company owned and user owned mobile devices
+		1. BYOD- Bring Your Own Devices
+	b. Centralized management
+	c. set policies on apps, data, camera etc
+	d. partitions
+	e. manage access control - pins and screen locks
+=== 2. Deployment Models ===
+	a. BYOD or BYOT (technology) - difficult to secure
+	b. COPE - Corporate owned, personally enabled
+		1. similar to laptops
+		2. corporate policies
+		3. org keeps control
+		4. CYOD- Choose your own device
+=== 3. Connection Methods ===
+	a. Cellular Networks
+		a. 4G, 5G
+		b. seperate land into 'cells'
+		c. security concerns: traffic monitoring, location tracking, worldwide access to a mobile device
+	b. WiFi
+		1. data capture - encrypt
+		2. public wifi issues
+		3. on path attack - modify and/or monitor
+		4. DoS
+	c. Bluetooth
+		1. PAN
+		2. Formal pairing process is imp
+
+==== # Wireless Security Settings ====
+	+ security is very imp
+	+ user authentication
+	+ Encryption of data
+	+ Verify integrity - message integrity check (MIC)
+
+=== 1. WPA2 PSK Problem ===
+	a. listen to the 4 way handshake and capture hash
+	b. with the hash the attackers can brute force the pre-shared key (PSK)
+	c. weak PSK is easier to brute force
+	d. higher GPU processing speed means better brute forcing
+	e. cloud based pwd cracking
+	f. no forward secrecy
+=== 2. WPA3 and GCMP ===
+	a. Wifi protected access 3 - 2018 (WPA3)
+	b. better encryption
+	c. Galois/Counter Mode Protocol (GCMP)
+	d. a type of AES mode
+	e. GCMP provides MIC with Galois message authentication code (GMAC)
+	f. a shared key is derived on both the ends
+	g. WPA3-Personal / WPA3-PSK
+		1. Everyone uses the same 256-bit key (PSK)
+	h. WPA3-Enterprise / WPA3-802.1X
+		1. Authenticates users individually with an authentication server (i.e., RADIUS)
+=== 4. SAE ===
+	a. Simultaneous Authentication of Equals
+	b. type of DH derived key exchange with an authentication component
+	c. everyone uses a different session key even with the same PSK
+	d. an IEEE standard - **the dragonfly handshake**
+=== 5. AAA Framework ===
+	a. Authetication protocols
+	b. Identification - username
+	c. Authentication - pwd and other auth factors
+	d. Authorization - 
+	e. Accounting - data send/received, logout/login time
+
+	{{./pasted_image_250823.png}}
+
+=== 6. RADIUS (Remote authentication Dial-in User Service) ===
+	a. common AAA protocol
+	b. not just dial-in (even on local network)
+	c. centralized auth for users on - Routers, switches, firewalls, server auth, Remote VPN access, 802.1X network access
+=== 7. IEEE 802.1X - Port based network access control (NAC) ===
+	a. used in conjunction with RADIUS, LDAP, TACACS+
+=== 8. EAP ( Extensible Authentication Protocol) ===
+
+--------------------
+
+==== # Application Security ====
+=== 1. Secure coding concepts ===
+	a. DevSecOps
+	b. Quality Assurance (QA) process
+=== 2. Input Validation ===
+	a. unexpected input should not be processed
+	b. check and correct all input - normalization
+		1. Eg: A zip code should only be X character long
+	c. Fuzzing - random data in input field and see if something crashes
+=== 3. Secure Cookies ===
+	a. normal cookies are data files with session informations
+	b. secure cookies are only sent over HTTPS
+	c. no sensitive info in cookies
+=== 4. Static Code Analyzers ===
+	a. Static Application Security Testing (SAST) - help identify security flaws
+	b. many sec vuln found easily - buffer overflows, database injection etc
+	c. But should not be completely relied upon
+	d. can have False Positives
+	{{./pasted_image_250824.png}}
+	
+=== 6. Code Signing ===
+	a. Integrity check
+	b. Authenticity check
+	c. uses assymetric encryption
+
+==== # Sandboxing ====
+	a. isolation of applications
+	b. Eg: VMs, Mobile Devices (like browser not having camera access)
+
+==== # Monitoring ====
+	a. real time info
+	b. audit logs
+	c. anomaly detection
+
+
+
+
+
+
+

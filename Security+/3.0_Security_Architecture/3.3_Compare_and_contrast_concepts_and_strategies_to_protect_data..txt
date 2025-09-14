@@ -1,0 +1,197 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-07-26T23:05:55-04:00
+
+====== 3.3 Compare and contrast concepts and strategies to protect data. ======
+Created Saturday 26 July 2025
+
+																{{./pasted_image_250805.png}}
+
+===== # Data Types =====
+	1. Regulated
+		a. Managed by a third party
+		b. Govenrment laws and statutes are to be kept in mind
+		c. Eg: If an org stores credit card info - they are to follow payment card industry standards and certain laws
+	2. Trade secret
+		a. An org's secret formulas
+		b. Often unique to an organization hence needs to protected
+	3. Intellectual property
+		a. It may be visible to public - like code, art, movies etc
+		b. They are copyright or trademark restricted
+	4. Legal Information
+		a. A mix for public and private data
+		b. Court records, documentation, Judge and attorney information etc. are public.
+		c. PII (Personally Identifiable Information) and other sensitive details are to be held Private.
+		d. Hence these informations are usually stored in many DIFFERENT locations.
+	5. Financial Information
+		a. Internal company financial details - PRIVATE
+		b. Customer financials - PRIVATE
+		c. Payment records - PRIVATE
+		d. Credit card data, bank records, etc. - ALL PRIVATE!!!
+	6. Human-readable
+		a. Eg: Spreadsheets, text etc.
+	7. Non-human readable
+		a. Eg: Encoded data, Barcodes, Images
+	8. Some formats are a hybrid of 6 and 7
+		a. Eg: CSV, XML, JSON, etc.
+
+--------------------
+
+===== # Data Classification =====
+	+ Not all data has same level of security invloved
+		-+ Additional permissions
+		-+ A different viewing process
+		-+ Restricted network access
+	+ **License tag numbers** are public but **health records** are private
+
+	1. Propritary
+		a. Data that is property of an organization
+		b. May also include trade secrets
+		c. Unique
+	2. PII - Personally Identifiable Information
+		a. Data to identify an individual 
+		b. Eg: Name, DOB, biometrics etc.
+	3. PHI - Protected Health Information
+		a. Health information associated with an individual
+		b. Eg: Health status, health care records, payments for health care, etc
+
+
+	4. Sensitive
+		a. Intellectual property, PII, PHI
+	5. Confidential
+		a. very sensitive, must be approved to view
+	6. Public / Unclassified
+		a. No restrictions on viewing the data
+	7. Private / Classified / Restricted
+		a. Restricted access. may require an NDA
+	8. Critical
+		a. Data should always be available
+
+--------------------
+
+===== # States of Data =====
+
+==== Data at rest ====
+	+ Data on storage devices
+		-+ Hard drives, SSD etc
+	+ Encrypt the data
+		-+ Full disk encryption
+		-+ Database encryption
+		-+ File-level  OR folder-level encryption
+	+ Apply permissions
+		-+ Access control lists
+		-+ Only authorized users can access the data
+
+==== Data in transit / motion ====
+	+ Data transmitted over a network
+	+ Less protected that data at rest
+		-+ Multiple failure points: switeches, routers, devices
+	+ Network based protection is required
+		-+ Firewall, IPS
+	+ Transport Encryption
+		-+ TLS
+		-+ IPSec
+
+==== Data in use ====
+	+  Data is actively being processed IN MEMORY
+		-+ System RAM, CPU registers and cache
+	+ The data is almost always decrypted
+	+ Attractive to attackers, as they can pick the decrypted information out of RAM
+	+ Eg: Target Corp. breach - November 2013
+		-+ 110 milion credit card details stolen
+		-+ They had data in transit and data in use encryptions
+		-+ Attackers picked the credit card numbers out of the point-of-sale RAM
+
+==== Data Sovereignty ====
+	+ Data that resides in a country is subject to the laws of that country
+	+ Eg: Legal monitoring, court orders, etc.
+	+ Laws may prohibit where data is stored
+		-+ GDPR (general data protection regulation) has many such rules.
+		-+ Data collected on EU citizens must be stored in the EU.
+		-+ A complex mesh of tech and legalities.
+	+ Compliance laws may even prohibit moving data out of the country
+
+--------------------
+==== Note: ====
+Geolocation provides location details through many different ways (802.11, mobile providers, GPS etc) which can be used to manage data access.
+	+ prevents access from other countries (Eg: streaming)
+	+ Permit enhanced access when inside a building
+--------------------
+
+===== # Methods to secure Data =====
+
+==== Geographc Restrictions ====
+	+ Network location
+		-+ identify based in IP subnet
+		-+ Can be difficult with mobile devices
+	+ Geolocation - determine a user's location
+		-+ GPS - mobile devices, very accurate
+		-+ 802.11 wireless, less accurate
+		-+ IP address, not very accurate
+	+ Geofencing
+		-+ Automatically allow or restrict access when the user is in a particular location.
+		-+ Don't allow this app to run unless you're near the office.
+
+--------------------
+
+==== Encryption ====
+	+ Plain Text → Encryption → Cypher Text → Decryption → Plain Text
+	+ Confusion: Encrypted data is drastically different than the plaintext
+
+==== Hashing ====
+	+Message Digest, Fingerprint
+	+ verification
+	+ Authentication, non-repudiation, integrity
+
+==== Obfuscation ====
+	+ memfrob
+	+ take perfectly readable code and turn it into nonsens
+		-+ the developer keeps the readable code and gives you the obfuscated one
+		-+ both perform the same way though
+	+ helps prevent rge search for security holes
+	{{./pasted_image_250805-001.png}}
+
+==== Masking ====
+	+ Hide some part of the data
+	+ Eg: only last 4 digits of card number are visible
+	+ substituting, shuffling, encrypting, masking out, etc
+
+==== Tokenization ====
+	+ Replace snesitive data with a non-sensitive placeholder
+	+ Common with credit card processing through phone (Apple Pay)
+	+ the og data and token are not mathematically related (no encryption overhead)
+
+	{{./pasted_image_250805-003.png}}
+
+	+ Many tokens are provided at once
+
+==== Segmentation ====
+	+ Have many different data sources
+	+ no single point of failure
+	+ apply different security at different databases
+
+==== Permission Restrictions ====
+	+ different policies
+	+ password policies
+	+ authenticatyion factor policies
+	+ Permissions after login
+
+
+--------------------
+--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

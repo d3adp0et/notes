@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T17:42:13-04:00
+
+====== 4.9 Log Data ======
+Created Wednesday 06 August 2025
+
+==== # Logs ====
+=== 1. Firewall Logs ===
+	a. src/dest IP
+	b. port no
+	c. rules
+	d. NGFW: applications too, urls, heuristics
+=== 2. Application Logs ===
+	a. specific to apps
+	b. win: event viewer / application log
+	c. linux/macOS: /var/log 
+	d. log into SIEM
+=== 3. Endpoint logs ===
+	a. login logon
+	b. policy
+	c. system events
+	d. directory services
+	e. also log on SIEM
+=== 4. OS-specific security logs ===
+=== 5. IPS/IDS logs ===
+	{{./pasted_image_250913-001.png}}
+	
+=== 7. Network logs ===
+=== 8. Metadata ===
+
+--------------------
+
+==== # Data srcs ====
+	1. Vuln scans
+	2. Automated reports - in SIEM 
+	3. Dashboards
+	4. Packet Captures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,305 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-07-26T23:05:44-04:00
+
+====== 3.1 Compare and contrast security implications of different architecture models. ======
+Created Saturday 26 July 2025
+
+							{{./pasted_image_250726-002.png}}
+
+===== # Architecture and Infrastructure Concepts =====
+==== Cloud ====
+=== + Cloud Responsiility Matrix ===
+	-+ IaaS, PaaS, SaaS, On Prem,  etc
+	-+ but, who is responsible for security?
+		- so most cloud providers provide a matrix of responsibilties (MOR)
+		- everyone knows upfront
+	
+		{{./pasted_image_250727.png}}
+														Fig: Responsibilty Matrix from a certain cloud provider
+
+=== + Hybrid Considerations ===
+	-+ more flexible, more complex
+	-+ lots of mismatches
+	-+ no connection between multiple cloud providers: HENCE MISMATCH
+	-+ Logs are diverse and different from each other
+	-+ Data leakage between providers
+
+=== + Third Party Vendors ===
+	-+ example firewalls from a third party
+	-+ have VENDOR RISK MANAGEMENT POLICY
+	-+ include them in incidence response
+
+--------------------
+
+==== Infrastructure as Code (IaC) ====
+	+ Define servers, networks and applications as code
+	+ modify infrastucture → create versions (just like code)
+	+ Use code to build other application instances (in the same way every time based on the code)
+	+ just like DOTFILES in ARCH
+	
+--------------------
+
+==== Serverless Architeture ====
+	+ Function as a Service (FaaS)
+	+ Applications are seperated into individual, autonomous functions 
+	+ Remove OS from the equation
+	+ Developer creates the server-side logic. They make smaller functions to deploy them on the server side.
+	+ Run only when needed. Save time and money. 
+	+ Can be removed from the cloud when not needed.
+	+ All security concers are also in the cloud (3rd Party)
+
+--------------------
+
+==== Monolithic Architecture v/s Microservices and APIs ====
+
+				  {{./pasted_image_250728.png}}                           												{{./pasted_image_250728-001.png}}
+
+	+ One big application that does everything (UI, business logic, data i/o)							 + Use microservices using APIs
+	+ Large codebase																		 + APIs acts like glues for the microservices that then acts like an entire application
+	+ probelmatic change control																 + Client only talks to API gateway which then talks to the microservices
+																									+ More scalable (load handling)
+																									+ More resilient (lose 1 microservice, rest still works) (no single point of failure)
+																									+ Security can vary service to service (more security for more sensitive microservice)
+																													
+--------------------
+
+==== Network Infrasturcture ====
+=== + Physical/Logical Isolation ===
+	-+ Air Gap b/w devices
+	-+ Eg1: web servers in one rack  and database servers in another in another. If one gets compromised, another one is safe.
+	-+ Eg2: Seperating different customer databases.
+		- **VLANs** (Virtual Local Area Network) can be a good option for this (if many segmentations are required) 
+
+
+{{./pasted_image_250728-002.png}}        {{./pasted_image_250728-003.png}}
+
+	-+ VLANs are seperated logically instead of physically
+	-+ Communication between VLANs requires a Layer 3 device (routers)
+
+=== + SDN (Software Defined Networking) ===
+	-+ There are physical aspects to switching/routing (devices used in power connection, interfaces, etc). These aspects have functional operations that occur at the same time.
+	-+ These operations are called **Planes of Operation: //Data Plane, Control Plane, and Management Plane.//**
+	-+ Categorize these devices into their functions.
+	-+ Used in IaC (Infrastructure as Code).
+	
+		{{./pasted_image_250729-005.png}}
+		
+	-+ Infrastructure Layer / Data Plane
+		- Process network frames and packet.
+		- Forwarding, trunking, encrypting, NAT (anything networking about forwarding data).    
+	-+ Control Layer / Control Plane
+		- Manages the action of the data plane (manages the forwarding of data).
+		- Eg: Router Tables are managed by this layer (Hence managing Routing).
+		- Eg: Session tables, NAT tables etc.
+		- Dynamic routing protocol updates.
+	-+ Application Layer / Management Plane
+		- Any/All configuration changes are handled here
+		- Eg: Changes made by SSH, Browser, APIs etc
+
+	-+ SDNs helps in quick deployment of infrastructure devices in the cloud (that supports SDNs)
+
+--------------------
+
+==== On-Prem Infrastructure v/s Cloud Infrastructure Security ====
+=== + Cloud ===
+	-+ Centralized
+	-+ lower cost (no dedicated hardware)
+	-+ Third party handles everything
+
+=== + On Prem ===
+	-+ Centralzed or Decentralized
+		- Most are decentralized (physically) : Multiple locations/ cloud providers/ OS. 
+		- Difficult to manage and protect. Hence approch is centralized.
+			-> Correlated alerts : All alerts in a single place
+			-> Consolidated log file analysis : Search everything at once.
+			-> Comprehensive system status and maintainance/ patching : Global process for maintainance and patching.
+			-> SINGLE POINT OF FAILURE
+	-+ Higher cost (data center, infrastructure)
+	-+ Security burden on client
+		-Complete control (Customization)
+		- On site team : **Higher Security, Availability and Uptime.**
+		- Local team is expensive & difficult to staff.
+		- Security changes take time (new equipment, configuration and additional costs).
+	
+--------------------
+
+{{./pasted_image_250729-010.png}}
+
+==== Virtualization ====
+	+different OS, same hardware
+	+ Virtual Machines ↔ Hypervisor ↔ Infrastructure
+	+ Isolated Machines
+
+==== Containerization ====
+	+ Different containers for different application															
+	+ App Containers ↔ Docker ↔ Operating System	
+	+ Isolated Containers	
+
+--------------------
+
+==== Internet of Things (IoT) ====
+	+ Eg:
+		-+Sensors (temp, lighting)
+		-+ Smart Devices (home automation)
+		-+ Wearable Tech (watches, health monitors)
+		-+ Facility Automation (temp, air quality, lighting)
+	+ ISSUE: Weak Defaults, as IOT manufacturers are not security professionals.
+
+==== SCADA / ICS ====
+	+ Supervisory Control and Data Acquisition (SCADA) System
+		-+ Large Scale (Network of Big Machines)
+		-+ Multi-site
+		-+ Industrial Control Systems (ICS)
+	+ Eg: Power Generation, refining, manufacturing 
+	+Real-time information				
+	+ Centralised control room
+	+ Requires extensive segmentation (no access from outside)
+	+ one of the most secure systems
+
+--------------------
+
+==== Real-Time Operating System (RTOS) ====
+	+ Windows/linux etc -> non deterministic OS (no single process capable of taking all the resources and priority)
+	+ RTOS -> deterministic processing schedule
+		-+ no time to wait for other processes
+		-+ Industrial Equipment, Automobiles etc
+		-+ Military Environments
+		-+ Eg: sudden braking in cars takes the priority
+	+ Extremely sensitive to security issues
+		-+ Needs to be always available
+		-+ Non-Trivial System
+		-+ Difficult to find the security/software/OS
+
+--------------------
+
+==== Embedded systems ====
+	+ Hardware & Software designed for a specific function (OR to operate as part of a larger system)
+	+ Efficient 1 task
+	+ Eg: Traffic light controllers; Digital Watches; Medical Imaging systems (like those beep beep beeeeeeeep machines in hospitals)
+
+--------------------
+
+==== High Availability (HA) ====
+	+ Always available
+	+ Different from Redundency 
+		-+ Redundency means having multiples of a same thing to replace the og when it fails – hence there will be a downtime while changing.
+	+ HA is always on, always available.
+	+ May include many different components working together.
+		-+ Active/Active > Backup
+		-+ Eg: 2 firewall working simultaneoulsy is active/active.      1 active firewall and 1 backup firewall (inactive) is the other kind.
+	+ HA → Higher costs
+		-+ 2 firewall means => 2 seperate networks => 2 seperate power systems
+		
+	+ **is HA available financially better than the risk of downtime?**
+		-+ yes: get HA
+		-+ no: no HA for you!
+
+--------------------
+
+===== # Infrastructure Considerations =====
+==== Availability ====
+	+ Access of data anytime, but only to the right people
+	+ //Success evaluation metric (Eg: 99% Uptime)//
+
+==== Resilience ====
+	+ When something happens
+		-+ Reover? Maintain availability? How quickly?
+	+ Things to consider:
+		1. Root Cause (Hardware problem? / Software Problem?)
+		2. Hardware Problem: Replacement installation
+		3. Software Problem: Patch Availability
+		4. Place redundant systems (if available)
+	+ MTTR  (Mean Time to Repair)
+		-+ Measure of Resilience
+
+==== Cost ====
+	+ Important
+	+ Many costs
+		-+ Initial Installation Cost
+		-+ Ongoing Maintainance Cost
+		-+ Replacement or Repair Cost
+		-+ Tax implications
+
+==== Responsiveness ====
+	+ how quick was reponse after a information request?
+	+ Imp in interactive applications 
+	+ Every component of the application is responsible
+
+==== Scalability ====
+	+ Increase or Decrease capacity quickly
+	+ Elasticity
+	+ High load always : no feasible, hence scalability
+	+ Security monitoring increase/decrease as the system scales
+
+==== Ease of Deployment ====
+	+ Many dynamic parts => 1 Application [webs server, databse, caching server, firewall etc]
+	+ involved processes: Hardware resources, cloud budgets, change control
+		-+ easy for cloud based deployments through **Orcestration**
+			- Orchestration is making a cloud based infra automatically on demand
+		-+ planning out the entire process is highly important
+
+==== Risk transference ====
+	+ Many methods to minimize risk 
+		-+ transfer risk to third party
+		-+ get cybersecurity insurance (protect against ransomware)
+			- recover internal losses: outages and business downtime 
+			- limits cost associated with legal proceedings (from customers)
+
+==== Ease of recovery ====
+	+ time is money
+	+ Eg: Malware infection -> Reloading OS from original media (~1 hour)
+							 -> OR better, reload from corporate image (~10 mins)
+	+  always plan out recovery
+
+==== Patch Availability ====
+	+ Bug fixes, security updates
+	+ Make sure you are running the latest update
+	+ Most companies have regular patches
+	+ If some company doesn't: RECONSIDER
+
+==== Inability to Patch ====
+	+ Patching was never an option
+	+ Eg: HVAC controls (AC/heating etc), time clocks [Embedded system]
+	+ Problem for you: Not designed for end-user updates
+	+ Solution for you: Security around these (like firewall if these devices are connected to a network)
+
+==== Power ====
+	+ An important component
+	+ diffferent power requirements for different situations (Data center v/s Office building)
+	+ Backup services
+		-+ UPS [Uninterruptible Power Supply]
+		-+ Generators
+
+==== Compute ====
+	+ Might need more than just a single CPU
+	+ This is called COMPUTE ENGINE in cloud
+		-+ Might be a single processor => easier to develop
+		-+ Multiple CPUs across multiple clouds => Additional complexity, Enhances scalability. 
+
+
+--------------------
+--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
