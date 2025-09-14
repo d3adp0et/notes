@@ -1,0 +1,166 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T01:24:23-04:00
+
+====== 5.3 Explain the processes associated with third-party risk assessment and management. ======
+Created Wednesday 06 August 2025
+
+===== # Vendor Assessment (3rd Party Assessment) =====
+	+ Every party uses 3rd party
+	
+=== Penetration testing ===
+	+ Rules of engagement
+		-+ Type of testng and schedule
+		-+ Type of testing and schedule
+			- Internal / external, on0site physical breach
+			- time
+		-+ Rules
+			- IP range
+			- Emergency contacts
+			- how to handle sensitive information
+
+=== Right-to-audit clause ===
+	+ Alegal agreement to have the option to perform a security audit at any time
+	+ Everyone agrees to the t&c
+	+ Ability to verify security before a breach occurs
+
+=== Evidence of internal audits ===
+	+ Evaluate the effectiveness of security controls	
+		-+ have a third party perform an audit
+	+ May be required for compliance 
+	+ Check for security controls and processes
+		-+ Access management, off boarding, password security, VPN controls etc
+	+ Perform at a reasonable frequency
+		-+ a single audit is not helpful in a long term 
+
+=== Supply Chain analysis ===
+	+ The system involved when creating a product : Supply Chain
+		-+ Invilves orgs, people, activity, and resources
+	+ Supply chain analysis
+		-+ Get a product or service from supplier to customer
+		-+ Evaluate coordination between grps
+		-+ Indentify areas of improvement
+		-+ Assess the IT system supporting the operation
+		-+ Document the business process changes
+	+Eg: Software update installs malware: March-June 2020
+		-+ Announced Dec 2020 by SolarWinds
+		-+ Malware deployed with a valid solerwinds digital signature
+		-+ Atleast 18,000 of 300,000 customers potentially impacted
+
+=== Independent Assessment ===
+	+ Bring in a smart person or team to evaluate security and provide recommendations
+
+--------------------
+
+===== # Vendor =====
+
+=== Vendor Selection Process ===
+	+ Due Diligence
+		-+ Check a company out befor doing business
+		-+ Investigate and verify information
+		-+ Financial status, pending or past legal issues, etc
+		-+ Background checks, personnel interviews
+
+	+ Conflict of interest
+		-+ no conflict of interest should be there
+		-+Eg: A potential partner also does business with your largest competitor
+		-+ Eg: A third party employs the brother of the CFO
+		-+ Eg: A third party offers gifts if a contract is signed
+
+==== Vendor Monitoring ====
+	+ Ongoing management of the vendor relationship
+		-+ this does not end when the contract is signed
+	+ Reviews should occur on a regular basis
+		-+ Financial health check, IT security reviews, News article, social media posts
+	+ Qualitative vs Quantitative analysis
+	+ Assign a person to be in charge of the vendor relationship
+
+==== Questionnaires ====
+	+ An important part of DD and ongoing vendor monitoring
+		-+ Get answers direfctly from the vendor
+	+ Security-related questions
+		-+ What is the vendor's DD process?
+		-+ What plans are in place for disaster recovery?
+		-+ What secure storage methods is used for company data?
+		-+ And more
+	+ Results are used in vendor risk analysis
+
+--------------------
+
+===== # Agreement Types =====
+
+=== Service Level Agreement (SLA) ===
+	+ Minimum terms for service provided
+	+ Uptime, response time agreeements etc
+	+ Commonly used between customers and service providers
+	+ Eg: Contract with an internet provider
+		-+ SLA is no more than 4 hours of unsheduled downtime
+		-+ Technician will be dispatched
+		-+ May require customer to keep spare equipment on-site
+
+=== Memorandum of Understanding (MoU) ===
+	+ Both sides agree in general to the contents of the memorandum
+	+ Usually states common goals but not much more 
+	+ May include statements of confidentiality
+	+ Informal letter of intent; not a signed contract
+
+=== Memorandum of Agreement (MoA) ===
+	+ The next step after MOU
+	+ Both sides conditionally agree to the objectives
+	+ Can also be a legal doc, even without legal language
+	+ Unlke a contract, may not contain legally enforceable promises
+
+=== Master Service Agreement (MSA) ===
+	+ Legal contract and agreements of terms
+	+ A broad framework to cover later transactions
+	+ Many detailed negotiations happen here
+	+ Future projects will be based on this agreement
+
+=== Work Order (WO) / Statement of Work (SOW) ===
+	+ Specific list of items to be completed
+	+ Used in conjuction with a MSA
+	+ Details the scope of the job, location, deliverables schedule, accpetance criteria and more
+	+ Eg: Was the job done properly? Refer to the SOW
+
+=== Non-Disclosure Agreements ===
+	+ Confidentiality agreements between parties
+	+ Protects confidential info
+		-+ trade secrets
+		-+ Business activities
+	+ Unilateral or Bilateral ( or multilateral)
+		-+ One-way NDA or mutual NDA
+	+Formal Contract
+		-+ SIgnatured
+
+=== Business Partners Agreement (BPA) ===
+	+ When going into business together
+	+ Owner stake
+	+ Financial contract
+	+ Decision making
+		-+ Who makes the business decisions?
+		-+ The BPA lists specific individuals and scope
+	+ Prepare for contingencies
+		-+ Financial issues
+		-+ Disaster Recovery
+
+--------------------
+--------------------
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

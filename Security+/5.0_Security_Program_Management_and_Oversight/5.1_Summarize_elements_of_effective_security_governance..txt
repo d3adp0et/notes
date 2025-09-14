@@ -1,0 +1,268 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T01:24:08-04:00
+
+====== 5.1 Summarize elements of effective security governance. ======
+Created Wednesday 06 August 2025
+
+														{{./pasted_image_250806.png}}
+						
+===== # Security Policy and Guidelines =====
+	+ CIA
+	+ rules to follow CIA
+		-+ High level : Data storage requirements, Security event procedures
+		-+ Detailed : Appropriate Wi-fi usage, requirements for remote access
+	+ Security policies ans: the "what" and "why"
+		-+ technical security controls answer the "how"
+
+==== Information security policies ====
+	+ The big list of all security related policies
+		-+ centralized resource for processes
+	+ Compliance requirements
+		-+ can be critical to an organization
+		-+ MUST HAVE
+	+ Detailed security procedure
+		-+ What happens when.....?
+			- virus is found
+			- vulnerability exploited etc
+	+ List of roles and responsibilites
+		-+ So to know who to contact
+	+ Must be ENFORCED
+
+==== Acceptable use policy (AUP) ====
+	+  acceptable use of company assets
+	+ Covers many topics
+		-+ Internet use
+		-+ telephones
+		-+ computers
+		-+ mobile devices etc
+	+ If someone is dismissed, these are the well-documented reasons why
+		-+ limit legal liability
+
+==== Business Continuity - COOP ====
+	+ All systems fail
+	+ still continue working
+	+ Go back to PAPER
+	+ Eg: Paper flight tickets during Crowdstrike outage
+	+ Plan accordingly and document
+
+==== Disaster recovery plan ====
+	+ Be ready for many types of disaster
+	+ Recovery location, data recovery method, application restoration, IT team and employee availability
+
+===== Incident Response =====
+	+ Policy to mitigate through some security incident
+	+ Eg: Successful phishing,  DDoS / Botnet attack, Confidential information stolen
+	+ need a teams that can work during such moments
+		-+ Incident response team : specialized grp
+		-+ IT security management : Corporate support
+		-+ Compliance officers : Intricate knowledge of compliance rules
+		-+ Technical staff 
+		-+ user community
+
+==== NIST SP800-61 ====
+	+ National Institute of Standards andTechnology
+		-+ NIST Special Publication 800-61 Revision 2
+		-+ Computer Security Incident Handling Guide
+	+ Include the Incident response lifecycle
+		-+ Preparation
+		-+ Detection and Analysis
+		-+ Containment, Eradication, and Recovery
+		-+ Post-incident Activity
+
+==== Software development lifecycle (SDLC) ====
+	+ Get from idea to app
+	+ Many moving parts are involved
+		-+ Customer requirements 
+		-+ On schedule
+		-+ Stay in budget
+	+ Many ways to do so
+
+{{./pasted_image_250806-002.png}}
+
+	+ Waterfall : Linear
+	+ Agile : Faster, Constant work, Many cycles before launch
+
+==== Change Management ====
+	+ How to make changes
+		-+ Upgrade software, change firewall config, modify switch ports
+	+ Common risk in the enterprise
+	+ Often overlooked and ignored
+	+ Have clear policies
+		-+ Frequency, duration, installation process, fallback procedures
+	+ Sometimes extremely difficult to implement : hard to change organizational culture
+
+--------------------
+
+===== # Security Standards =====
+	+ A formal definition for using security technologies and processes
+		-+ complete documentaion
+		-+ everyone understands the expectations
+	+ Can be written in house (unique to the environment)
+	+ Many established standards
+		-+ ISO (International Organization for Standardization)
+		-+ NIST (National Institute of Standards andTechnology)
+
+==== Password ====
+	+ What makes a good password
+		-+ differ from org to org
+		-+ password complexity policy
+	+ Define acceptable auth methods
+	+ Create policies for secure password resets
+		-+ avoid unauthorized resets and access
+	+ Other pwd policies
+		-+ pwd change frequency, secure pwd storage requirements, pwd manager options, etc.
+
+==== Access Control ====
+	+ control access to data
+	+ which **information**, at what **time** and under which **circumstances**
+	+ Determine how a user gets access
+	+ Document how access may be removed
+		-+ Security issue, expiration, contract renewals, etc.
+
+==== Physical Security ====
+	+ Rules and policies regarding physical security controls
+	+ Granting physical access - different for employees vs visitors
+	+ Define specific physical security systems
+		-+ Electronic door locks, ongoing monitoring, motion detection, etc.
+	+ Additional security concerns
+		-+ Mandatory escorts, off-boarding, etc.
+
+==== Encryption ====
+	+ standards for encrypting and securing data
+	+ Eg: Methods and techniques for Password Storage
+	+ Data encryption minimums
+		-+ Algortihms for data in use, data in transit, data at rest
+		-+ different for each state
+
+--------------------
+
+===== # Security Procedures =====
+
+=== Change Management ===
+	+ A formal process for managing change
+	+ avoid downtime, confusion and mistakes
+	+ Process
+		1. Determine the scope of the change
+		2. Analyze the risk associated with the change
+		3. Create a plan
+		4. Get end-user approval
+		5. Present the proposal to the change control board (If Present)
+		6. Have a backout plan if the change does not work
+		7. Document the changes
+
+=== Onboarding ===
+	+ Policies for bringing a new person
+	+ IT agreements, Create accounts (with proper read and write permissions), Provide required IT hardware (Preconfigured laptops etc)
+
+=== Offboarding ===
+	+ leaving policy
+	+ pre-planned
+	+ What happens to the hardware, data in it, account (mostly deactivate)
+
+=== Playbooks ===
+	+ step by step guide for certain events (data breach, ransomware)
+	+ Can be used to create automated activities
+	+ Integrated with SOAR (Security Orchestration, Automation, and Response)
+
+--------------------
+
+===== # Monitoring and Revision =====
+	+ Constant change is required
+	+ Update security posture - Tighter change control, additional playbooks
+	+ change to individual procedures - update playbooks, include additional checks
+	+ New security concerns - new threats everyday
+
+--------------------
+
+===== # Governance Structure =====
+
+=== Boards (Private Sector) ===
+	+ a panel of specialists
+	+ Sets the tasks or requirements for the committees
+=== Committees ===
+	+ Subject-matter experts
+	+ Considers the input from the board
+	+ Determines next steps for a topic at hand
+	+ Presents the results to the board
+=== Government Entities (Public Sector) ===
+	+ A different kind of machines
+	+ Legal concerns, administrative requirements, political issues
+	+ Often open to the public
+=== Centralized / Decentralized ===
+	+ The source of the process and procedures
+	+ Centralized governance is located in 1 location with a group of decision makers
+	+ Decentralized governance spreads the decision-making process around to other individuals or locations
+
+--------------------
+
+===== # External Consideration =====
+
+=== Regulatory ===
+	+ External regulations are often mandated
+		-+ security processes are usually a foundational considerations
+		-+ logging, data storage, data protection, and retention
+	+ Sarvanes-Oxley Act (SOX)
+		-+ The public company accounting reform and investor protection act of 2002
+		-+ Regualtions in terms of finances
+		-+ In respect ti IT dept, it says how to store and protect financial stuff
+	+ The Health Insurance Portability and Accountability Act (HIPPA)
+		-+ Extensive healthcare standards for storage, use and transmission of health care information
+
+=== Legal ===
+	+ The security team is often tasked with legal reponsibilities
+	+ security breach notification (varies geographically)
+	+ CLoud computing makes this challenging
+
+=== Industry ===
+	+ Every industry require specific security considerations
+	+ Eg: Electrical power and public utilites should be isolated and have protected system controls
+	+ Eg: MEdical stuff should have highly secure data storage and access logs
+
+=== Geographical security ===
+	+ security regulations are related to where they matter
+	+ Local 
+	+ National
+	+ Global
+
+--------------------
+
+===== # Roles and responsibilties for system & data =====
+	+HIgh level data relationships
+
+	1. Data Owner - Accountable for specific data, often a senior officer
+		a. Eg: VP of sales owns the customer relationship data
+		b. Eg: Treasurer owns the financial information
+	2. Data Controller - Manages the purpose and means by which personal data is processed
+	3. Data Processor - Processes data on behalf of the data controller
+		a. often a 3rd party or a different group
+		b. Eg: Payroll department (data controller defines payroll amounts and timeframes
+		c. Payroll company (data processor) processes payroll and stores employee information
+	4. Data Custodian / Steward
+		a. Responsible for data accuracy, privacy, and security
+		b. Works directly with the data
+			1. Associates senstivity labels to the data
+			2. Ensures compliance with any applicable laws and standards
+			3. Manages the access rights to the data
+			4. Implements security controls
+
+
+--------------------
+--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+

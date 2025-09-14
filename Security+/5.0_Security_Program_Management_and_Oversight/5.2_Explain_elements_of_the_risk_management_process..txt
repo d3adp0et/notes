@@ -1,0 +1,201 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T01:24:18-04:00
+
+====== 5.2 Explain elements of the risk management process. ======
+Created Wednesday 06 August 2025
+
+															{{./pasted_image_250806.png}}
+
+===== # Risk Identification =====
+	+ Manage potential risk
+	+ Qualify internal and external threats
+	+ Risk analysis helps plan for contingencies
+
+--------------------
+
+===== # Risk Assessment =====
+	+ Not all risks requires constant evalution
+	+ Or it might be required to always assess the amount of risk
+
+=== One-time ===
+	+ The assessment may be part of a one-time project
+	+ Eg: Comapny acquisition, new equipment installation, unique new security threat etc.
+
+=== Continuous ===
+	+ May be part of an existing process
+	+ Change control requires a risk assessment as part of the change.
+
+=== Ad hoc (for this) ===
+	+ As in "for this...purpose only"
+	+ Perform risk assessment when situtaion requires
+	+ Eg: CEO learns about a new attack type -> Wants to know if the org is protected from this new attack 
+	+ A committee is created and the risk assessment proceeds
+		-+ Once the assessment is complete, the committee is disbanded
+		-+ There may not be a need to investigate this specific risk again
+
+=== Recurring ===
+	+ The evaluation occurs on standard intervals
+	+ Eg: An internal assessment that is performed every three months at the beginning of the quarter
+	+ Can be Mandated
+		-+ Required by certain organization
+		-+ Some legal requirements will mandate an assessment
+		-+ PCI DSS requires annual risk assessment
+
+--------------------
+
+===== # Risk Analysis =====
+
+==== Qualitative ====
+	+ Compare Risk factor to many criteria
+	+ Each criteria will have it's own significance
+	{{./pasted_image_250807.png}}
+
+==== Quantitative ====
+	+ Deals with actual numbers
+	+ ARO - Annualized Rate of Occurance
+		-+ How likely is it that a hurricane will it? 
+			- Low in Gujarat
+			- High in Florida
+	+ Asset Value (AV) 
+		-+ The value of the asset to the org
+		-+ Includes the cost of the asset, the effect on company sales, potential regulatory fines, etc.
+	+ Exposure factor (EF)
+		-+ The percentage of the value lost due to an incident
+		-+ Losing a quarter of the value is 0.25
+		-+ Losing the entire asset is 1.0
+
+	+ Single Loss Expectancy (SLE)
+		-+ Monetary loss if a SINGLE event occurs
+		-+ SLE = Asset Value (AV) x Exposure factor (EF)
+		-+ Laptop stolen = $1000 (AV) * 1.0 (EF) = $1000 (SLE)
+
+	+ Annualized Loss Expectancy (ALE)
+		-+ Annualized Rate of Occurrence (ARO) x SLE
+		-+ Seven laptops stolen a year (ARO) * $1000 (SLE) = $7000 (ALE)
+
+	+ The business impact can be more than monetary
+		-+ The data in laptop was more valuable than the laptop
+		-+ Quantitative vs Qualitative
+
+==== Impact ====
+	+ Life (most imp)
+	+ PRoperty
+	+ Safety
+	+ Finance
+
+==== Likelihood and probability ====
+	+ Risk likelihood
+		-+ A qualitative measure of the risk
+	+ Risk Probability
+		-+ A quantitaive measure of the risk
+		-+ A statistical measurement
+		-+ based on historical performance
+	{{./pasted_image_250807-001.png}}
+
+==== Risk Appetite and tolerance ====
+	+ A broad description of risk-taking deemed acceptable
+	+ The amt of accepted risk before taking any action to reduce that risk
+
+	+ Risk appetite posture
+		-+ Qualitative description for readiness to take risk
+		-+ Conservative, neutral and expansionary
+	+ Risk tolerance
+		-+ Larger from risk appetite
+		-+ Risk appetite is all about the risk you are absolutely okay to take
+		-+ tolerance on the other hand is about the risk you can take but no more.
+		-+ Eg: if speed limit is 55 that is risk appetite, but one will not be fined for driving at 58mph or 60mph, that is risk tolerance
+
+==== Risk register ====
+	+ Complete document of risk associated with every plan of an org
+	+ Key risk indicators - Identify risks that could impact the org
+	+ Risk owners - responsible for managing that risk
+	+ Risk threshold - the cost of mitigation =< value gained by mitigation
+
+--------------------
+
+===== # Risk Management strategies =====
+
+=== Transfer ===
+	+ Move the risk to anothe party
+	+ Eg: Buy some cybersecurity insurance
+
+=== Accept ===
+	+ Accept the risk
+	+ Often the usual course
+
+=== Accept with exemption ===
+	+ A security policy or regulation cannot be followed.
+	+ May be based on available security controls, size of org, total assetss, etc
+	+ Exemption may need approval
+
+=== Accept with exception ===
+	+ Internal security policies are not applied
+	+ Eg: Monthly security updates must be applied within 3 calendar days. But a monthly update cause a critical software package to crash
+	+ Hence an exception is made to the update timeframe (wait more than 3 days)
+
+=== Avoid ===
+	+ Stop participating in a high risk activity
+	+ This effectively removes the risk
+
+=== Mitigate ===
+	+ Decrease the risk level
+	+ Invest in securty systems
+	+ Eg: Invest in NGFW when there is a risk from internet
+
+==== Risk reporting ====
+	+ A formal document
+		-+ Identifies risk
+		-+ Detailed info for each risk
+	+ Usually created for senior management
+		-+ for them to make decisions regarding resources, budgeting, additional security tasks
+	+ Commonly includes critical and emerging risks
+
+--------------------
+
+===== # Business Impact Analysis =====
+
+=== Revovery Time Objective (RTO) ===
+	+ Timeframe to know  hoe long it is before "Get up and running"
+	+ Get back to a particular service level
+	+ Eg: You're not up and running until the database and web server are operational
+
+=== Recovery Point Objective (RPO) ===
+	+ Point in time when an org can say they are up and running, but htey need something to get to that point
+	+ Eg: A company can say they are up and running if they have 12 months of customer data
+	+ this 12 months of customer data is called RPO
+
+=== Mean time to Repair (MTTR) ===
+	+ Avg time required to fix an issue
+	+ This includes time spent diagnosing the problem
+	+ an important metric for determining the cost and time associated with unplanned outages
+
+=== Mean time between Failures (MTBF) ===
+	+ the time between outages
+	+ Can be used as a prediction or calculated based on historical performance
+	+ Total uptime / number of breakdowns
+	+ Statistically plan for possible outages
+
+--------------------
+--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

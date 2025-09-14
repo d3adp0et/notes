@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T01:24:40-04:00
+
+====== 5.5 Explain types and purposes of audits and assessments. ======
+Created Wednesday 06 August 2025
+
+																				{{./pasted_image_250807.png}}
+
+=== # Attestation ===
+	+ Provides an opinion of truth or accuracy of a compnay's security positioning 
+	+ An auditor will attest to a company's cybersecurity posture
+
+=== # Internal Audits ===
+	+ Compliance: is org compliant
+	+ Audit committee: Team that oversees
+	+ Self assessments: Own checks, maintain reports
+
+=== # External Audits ===
+	+ Regulatory: Audit type and frequency are often based on the regulation
+	+ Examination: hands-on research; view records, compile reports, gather additional details
+	+ Assessment: current status and future improvements
+
+=== #  Penetration testing ===
+	+ Physical pentesting
+	+ Offensive
+	+ Defensive
+	+ Integrated (purple) : do both at the same time
+	+ Known Env – White Box – Full disclosure
+	+ Partially known Env – Gray Box
+	+ Unknown Env – Black Box – Blind test
+	+ Reconnaissance
+		-+ Passive (OSINT)
+		-+ Active (hands-on)
+
+--------------------
+--------------------
+
+	
+

@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T01:24:45-04:00
+
+====== 5.6 Given a scenario, implement security awareness practices. ======
+Created Wednesday 06 August 2025
+
+																		{{./pasted_image_250807.png}}
+
+=== # Phishing ===
+	+ run own phishing campaign
+
+=== # Anamalous behavious recognition ===
+	+ understand risky behaviour
+	+ unexpected behaviour
+	+ unintentional behaviour (human error)
+
+=== # Reporting and monitoring ===
+	+ constant
+	+ Initial: First occurance
+	+ Recurring: If constantly happnens
+
+=== # Development ===
+	+ Create a security awareness s=team
+	+ Establish minimum awareness level
+	+ Integrate compliance mandates: PCI DSS, HIPAA, GDPR etc
+
+=== # Execution ===
+	+ team does the work
+	+ training material
+	+ posters
+	+ document
+
+=== # User guidance and training ===
+	+ Specialized
+	+ policy/ handbooks
+	+ always look for threats : situational awareness
+	+ Insider threat : Difficult to guard against
+	+ Password managemnt : have aguide
+	+ Removable media and cables : be attentive
+	+ Socail engg : do not fall for it -> training
+	+ Operational security : view sec from attacker's perspective
+	+ Hybrid / remote work env : Unusual security risks; additional endpoint security; security policies for VPN access
+
+--------------------
+--------------------
+
+
+
+

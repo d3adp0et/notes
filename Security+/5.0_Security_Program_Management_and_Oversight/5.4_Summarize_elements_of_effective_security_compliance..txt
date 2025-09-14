@@ -1,0 +1,141 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2025-08-06T01:24:29-04:00
+
+====== 5.4 Summarize elements of effective security compliance. ======
+Created Wednesday 06 August 2025
+
+											{{./pasted_image_250807.png}}
+
+===== # Compliance =====
+	+ Meeting the standards of laws, policies and regulations
+	+ A healthy catalog of rules
+		-+ Across many aspects of business and life
+		-+ Many are industry-specific or situational
+	+ Penaltites if not compliant
+		-+ Fines, loss of employment, incarceration
+	+ Scope
+		-+ Domestic and international requirements
+
+==== Compliance Reporting ====
+=== +Internal ===
+	-+ Monitor and report or organizational compliance efforts
+	-+ Large orgs have a  Central Compliance Officer (CCO)
+	-+ Also used to provide details to customers and potential investors
+
+=== + External ===
+	-+ Docs required by external or industry regulators
+	-+ May require annual or ongoing reporting
+	-+ Missing or invalid reporting could result in fines and/or sanctions
+
+=== + Regulatory Compliance ===
+	-+ Sarbanes-Oxley Act
+	-+ The Health Insurance Portability and Accounting Act
+	-+ The Gramm-Leach-Bliley Act of 1999 (GLBA)
+		- Disclosure of privacy information from financial institutions
+
+==== Consequences of Non-compliance ====
+	+ Eg: HIPAA non-compliance fines and sanctions
+		-+ Fine of up to $50,000 or up to 1 year in prison or both; (Class 6 Felony)
+		-+ Under false pretenses; a fine of up to $100,000 , Up to 5 years in prison, or both; (Class 5 Felony)
+		-+ Intent to sell, transfer or use individually identifiable health informationn for commercial advantage, personal gain, or malicious harm; A fine of upto $250,000 or upto 10 years in prison, or both; (class 4 felony)
+		-+ Civil fines; maximum is $100 for each violation, with the total amount not to exceed $25,000 for all violations of an indentical requirements or prohibition during a calender year; (Class 3 Felony)
+	+ Reputaiional Damage
+		-+ October 201 - Ubder breach
+			- 25.6 million names, email addresses, mobile phone numbers
+			- Did not publicly announce it until November 2017
+			- Allegedly paid the hackers $100,000 and had them sign an NDA
+			- 2018 - Ubser paid $148 million in fines
+			- Hacker pleaded guilty in Oct 2019
+			- May 2023 - Uber's former Cheif Security Officer sentenced
+				> Three years probation and a $50,000 fine
+	+ Other consequences
+		-+ Loss of License
+		-+ Contractual impacts
+
+==== Compliance Monitoring ====
+	+ Ensure compliance in day-to-day operations
+	+ Due Diligence/ Care
+		-+ A duty to act honestly and in good faith
+		-+ Investigate and verify
+		-+ Due care tends to refer to internal activities
+		-+ Due dilignece is often associated with third-party activities
+	+ Attestation and acknowledgement
+		-+ Someone must "sign off" on formal compliance docs
+		-+ Ultimately responsible if the docs are incorrect
+	+ Internal and External
+		-+ Moitor compliance with internal tools
+		-+ Provide access ir info to the third-party participation
+		-+ May require ongoing monitoring of third-party operaions
+	+ Automation
+		-+ A must-have for large orgs
+		-+ Can be quite different across vertical markets
+		-+ Many third-party monitoring systems
+		-+ Collect data from people and systems
+		-+ Compile the data and report
+
+--------------------
+
+===== # Privacy =====
+
+=== Legal Implications ===
+	+ A constantly evolving set of guidelines
+	+ Local/regional : State and local govn set privacy limits
+	+ National 
+		-+ Privacy laws for everyone in a country
+		-+ HIPAA, online privacy for children under 13, etc
+	+ Global
+		-+ Many countries are working together for privacy
+	+ EG: GDPR in EU : A right to be forgotten
+
+=== Data Subject ===
+	+ An individual with personal data
+	+ This includes everyone
+		-+ Name, ID number, address info, genetic makeup, physical characteristicks, location data, etc.
+	+ Privacy is ideally defined from the perspective of the data subject
+
+=== Data Responsibilities ===
+	+ Data Owner
+	+ Data Controller
+	+ Data Processor
+
+=== Data Inventory and retention ===
+	+ Document data inventory (what does an org store?)
+	+ Data inventory
+		-+ A lisitng of all managed data
+		-+ Owner, update frequency, format of the data
+	+ Internal Use
+		-+ Project collaboration, IT security, Data quality checks
+	+ External use
+		-+ Select data to share publicly
+		-+ Follow existing laws and regulations
+
+--------------------
+--------------------
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
